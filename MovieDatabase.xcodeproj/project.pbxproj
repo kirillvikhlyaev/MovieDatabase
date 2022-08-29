@@ -56,15 +56,47 @@
 		ED4B61AA28BCA12300CFF12F /* MovieDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				ED4B61C128BCA18F00CFF12F /* Model */,
+				ED4B61C028BCA17500CFF12F /* Controller */,
+				ED4B61BF28BCA15000CFF12F /* View */,
+				ED4B61C228BCA1C700CFF12F /* Supporting Files */,
 				ED4B61AB28BCA12300CFF12F /* AppDelegate.swift */,
 				ED4B61AD28BCA12300CFF12F /* SceneDelegate.swift */,
-				ED4B61AF28BCA12300CFF12F /* ViewController.swift */,
-				ED4B61B128BCA12300CFF12F /* Main.storyboard */,
-				ED4B61B428BCA12500CFF12F /* Assets.xcassets */,
 				ED4B61B628BCA12500CFF12F /* LaunchScreen.storyboard */,
 				ED4B61B928BCA12500CFF12F /* Info.plist */,
 			);
 			path = MovieDatabase;
+			sourceTree = "<group>";
+		};
+		ED4B61BF28BCA15000CFF12F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED4B61B128BCA12300CFF12F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED4B61C028BCA17500CFF12F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ED4B61AF28BCA12300CFF12F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ED4B61C128BCA18F00CFF12F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED4B61C228BCA1C700CFF12F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED4B61B428BCA12500CFF12F /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
