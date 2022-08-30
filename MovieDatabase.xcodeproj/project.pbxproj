@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED3D503128BD47B80096F66F /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3D502F28BD47B80096F66F /* CollectionTableViewCell.swift */; };
+		ED3D503228BD47B80096F66F /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3D503028BD47B80096F66F /* CollectionTableViewCell.xib */; };
+		ED3D503728BD48230096F66F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3D503528BD48230096F66F /* CustomCollectionViewCell.swift */; };
+		ED3D503828BD48230096F66F /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3D503628BD48230096F66F /* CustomCollectionViewCell.xib */; };
 		ED4B61AC28BCA12300CFF12F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AB28BCA12300CFF12F /* AppDelegate.swift */; };
 		ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AD28BCA12300CFF12F /* SceneDelegate.swift */; };
-		ED4B61B028BCA12300CFF12F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AF28BCA12300CFF12F /* ViewController.swift */; };
+		ED4B61B028BCA12300CFF12F /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AF28BCA12300CFF12F /* MainPageViewController.swift */; };
 		ED4B61B328BCA12300CFF12F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B128BCA12300CFF12F /* Main.storyboard */; };
 		ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B428BCA12500CFF12F /* Assets.xcassets */; };
 		ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B628BCA12500CFF12F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED3D502F28BD47B80096F66F /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		ED3D503028BD47B80096F66F /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
+		ED3D503528BD48230096F66F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED3D503628BD48230096F66F /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED4B61A828BCA12300CFF12F /* MovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4B61AB28BCA12300CFF12F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED4B61AD28BCA12300CFF12F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ED4B61AF28BCA12300CFF12F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED4B61AF28BCA12300CFF12F /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		ED4B61B228BCA12300CFF12F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED4B61B428BCA12500CFF12F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4B61B728BCA12500CFF12F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED3D503328BD47E50096F66F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D502F28BD47B80096F66F /* CollectionTableViewCell.swift */,
+				ED3D503028BD47B80096F66F /* CollectionTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		ED3D503428BD47F60096F66F /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED3D503528BD48230096F66F /* CustomCollectionViewCell.swift */,
+				ED3D503628BD48230096F66F /* CustomCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		ED4B619F28BCA12300CFF12F = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +97,9 @@
 		ED4B61BF28BCA15000CFF12F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED3D503428BD47F60096F66F /* CollectionViewCell */,
 				ED4B61B128BCA12300CFF12F /* Main.storyboard */,
+				ED3D503328BD47E50096F66F /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,7 +107,7 @@
 		ED4B61C028BCA17500CFF12F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ED4B61AF28BCA12300CFF12F /* ViewController.swift */,
+				ED4B61AF28BCA12300CFF12F /* MainPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -160,6 +188,8 @@
 				ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */,
 				ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */,
 				ED4B61B328BCA12300CFF12F /* Main.storyboard in Resources */,
+				ED3D503828BD48230096F66F /* CustomCollectionViewCell.xib in Resources */,
+				ED3D503228BD47B80096F66F /* CollectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,9 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4B61B028BCA12300CFF12F /* ViewController.swift in Sources */,
+				ED4B61B028BCA12300CFF12F /* MainPageViewController.swift in Sources */,
+				ED3D503728BD48230096F66F /* CustomCollectionViewCell.swift in Sources */,
 				ED4B61AC28BCA12300CFF12F /* AppDelegate.swift in Sources */,
 				ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */,
+				ED3D503128BD47B80096F66F /* CollectionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
