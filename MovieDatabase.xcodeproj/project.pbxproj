@@ -43,12 +43,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ED4B619F28BCA12300CFF12F = {
+		974ECAD728BE8BFE004BE4D4 /* TopCinema */ = {
 			isa = PBXGroup;
 			children = (
 				974ECAD128BE8A70004BE4D4 /* TopCinemaModel.swift */,
 				974ECAD328BE8AF8004BE4D4 /* TopCinemaManager.swift */,
 				974ECAD528BE8B18004BE4D4 /* TopCinemaController.swift */,
+			);
+			path = TopCinema;
+			sourceTree = "<group>";
+		};
+		ED4B619F28BCA12300CFF12F = {
+			isa = PBXGroup;
+			children = (
 				ED4B61AA28BCA12300CFF12F /* MovieDatabase */,
 				ED4B61A928BCA12300CFF12F /* Products */,
 			);
@@ -65,6 +72,7 @@
 		ED4B61AA28BCA12300CFF12F /* MovieDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				974ECAD728BE8BFE004BE4D4 /* TopCinema */,
 				ED4B61C128BCA18F00CFF12F /* Model */,
 				ED4B61C028BCA17500CFF12F /* Controller */,
 				ED4B61BF28BCA15000CFF12F /* View */,
