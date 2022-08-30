@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		974ECAD228BE8A70004BE4D4 /* TopCinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECAD128BE8A70004BE4D4 /* TopCinemaModel.swift */; };
+		974ECAD428BE8AF8004BE4D4 /* TopCinemaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECAD328BE8AF8004BE4D4 /* TopCinemaManager.swift */; };
+		974ECAD628BE8B18004BE4D4 /* TopCinemaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECAD528BE8B18004BE4D4 /* TopCinemaController.swift */; };
 		ED4B61AC28BCA12300CFF12F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AB28BCA12300CFF12F /* AppDelegate.swift */; };
 		ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AD28BCA12300CFF12F /* SceneDelegate.swift */; };
 		ED4B61B028BCA12300CFF12F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B61AF28BCA12300CFF12F /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		974ECAD128BE8A70004BE4D4 /* TopCinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCinemaModel.swift; sourceTree = "<group>"; };
+		974ECAD328BE8AF8004BE4D4 /* TopCinemaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCinemaManager.swift; sourceTree = "<group>"; };
+		974ECAD528BE8B18004BE4D4 /* TopCinemaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCinemaController.swift; sourceTree = "<group>"; };
 		ED4B61A828BCA12300CFF12F /* MovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4B61AB28BCA12300CFF12F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED4B61AD28BCA12300CFF12F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +46,9 @@
 		ED4B619F28BCA12300CFF12F = {
 			isa = PBXGroup;
 			children = (
+				974ECAD128BE8A70004BE4D4 /* TopCinemaModel.swift */,
+				974ECAD328BE8AF8004BE4D4 /* TopCinemaManager.swift */,
+				974ECAD528BE8B18004BE4D4 /* TopCinemaController.swift */,
 				ED4B61AA28BCA12300CFF12F /* MovieDatabase */,
 				ED4B61A928BCA12300CFF12F /* Products */,
 			);
@@ -170,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974ECAD628BE8B18004BE4D4 /* TopCinemaController.swift in Sources */,
+				974ECAD228BE8A70004BE4D4 /* TopCinemaModel.swift in Sources */,
 				ED4B61B028BCA12300CFF12F /* ViewController.swift in Sources */,
 				ED4B61AC28BCA12300CFF12F /* AppDelegate.swift in Sources */,
 				ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */,
+				974ECAD428BE8AF8004BE4D4 /* TopCinemaManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
