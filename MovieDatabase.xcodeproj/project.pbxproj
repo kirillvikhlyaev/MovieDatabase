@@ -24,6 +24,11 @@
 		ED4B61B328BCA12300CFF12F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B128BCA12300CFF12F /* Main.storyboard */; };
 		ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B428BCA12500CFF12F /* Assets.xcassets */; };
 		ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B628BCA12500CFF12F /* LaunchScreen.storyboard */; };
+		EDEAD55528BF5D2000398023 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAD55428BF5D2000398023 /* MainPageViewController.swift */; };
+		EDEAD55828BF5DE000398023 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAD55628BF5DE000398023 /* CustomCollectionViewCell.swift */; };
+		EDEAD55928BF5DE000398023 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEAD55728BF5DE000398023 /* CustomCollectionViewCell.xib */; };
+		EDEAD56228BF5EE400398023 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAD56028BF5EE400398023 /* CollectionTableViewCell.swift */; };
+		EDEAD56328BF5EE400398023 /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEAD56128BF5EE400398023 /* CollectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		ED4B61B428BCA12500CFF12F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4B61B728BCA12500CFF12F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED4B61B928BCA12500CFF12F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDEAD55428BF5D2000398023 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		EDEAD55628BF5DE000398023 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDEAD55728BF5DE000398023 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDEAD56028BF5EE400398023 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		EDEAD56128BF5EE400398023 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				ED4B61B128BCA12300CFF12F /* Main.storyboard */,
+				EDEAD55628BF5DE000398023 /* CustomCollectionViewCell.swift */,
+				EDEAD55728BF5DE000398023 /* CustomCollectionViewCell.xib */,
+				EDEAD56028BF5EE400398023 /* CollectionTableViewCell.swift */,
+				EDEAD56128BF5EE400398023 /* CollectionTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 			children = (
 				ED4B61AF28BCA12300CFF12F /* ViewController.swift */,
 				4375EE8928BEC590003123A4 /* DetailsViewController.swift */,
+				EDEAD55428BF5D2000398023 /* MainPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,7 +218,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEAD56328BF5EE400398023 /* CollectionTableViewCell.xib in Resources */,
 				ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */,
+				EDEAD55928BF5DE000398023 /* CustomCollectionViewCell.xib in Resources */,
 				ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */,
 				ED4B61B328BCA12300CFF12F /* Main.storyboard in Resources */,
 			);
