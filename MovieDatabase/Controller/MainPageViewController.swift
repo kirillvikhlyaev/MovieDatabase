@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainPageViewController: UITableViewController {
     
@@ -13,6 +14,8 @@ class MainPageViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         var movies = [
                     Movie(id: 0, title: "SpiderMan", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),

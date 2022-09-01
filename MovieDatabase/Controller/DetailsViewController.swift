@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Kingfisher
 class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     //MARK: IBOutlets
@@ -30,12 +31,22 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: let/var
     var addedToFavorite = false
     var movies = [Movie]()
+    
+    let movieManager = MovieDownloadManager()
+    let serialManager = SerialDownloadManager()
 
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
         setupRatingStars()
+        
+        //serialManager.getCast()
+        
+//        let url = URL(string: "https://image.tmdb.org/t/p/original/hOrV2fCw2kmSiS4ZMGFPfXqr3lt.jpg")
+//        movieImage.kf.setImage(with: url)
+        
+    
     }
     
     //MARK: Methods
