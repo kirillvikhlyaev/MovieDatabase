@@ -25,8 +25,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
 
     public func configure(with movie: Movie) {
-        self.title.text = movie.title
-        self.date.text = movie.date
-        self.imageView.image = UIImage(named: movie.imageUrl)
+        self.title.text = movie.title ?? "title"
+        self.date.text = movie.release_date ?? "release_date"
+        self.imageView.image = UIImage(named: "simpleWoman")
     }
 }
