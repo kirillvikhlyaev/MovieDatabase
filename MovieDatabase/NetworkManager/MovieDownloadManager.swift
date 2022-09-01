@@ -4,7 +4,6 @@
 //
 //  Created by Марк Михайлов on 31.08.2022.
 
-
 import Foundation
 
 final class MovieDownloadManager  {
@@ -18,16 +17,15 @@ final class MovieDownloadManager  {
         getMovies(movieUrl: .discover)
     }
     
-    func getCastID() {
-        getCast(for: movie)
-    }
     
+    //(movie.id ?? 100)
     func getCast(for movie: Movie) {
         let urlString = "\(Self.baseURL)movie/\(movie.id ?? 100)/credits?api_key=\(API.key)&language=en-US"
         NetworkManager<CastResponse>.fetch(from: urlString) { (result) in
             switch result {
             case .success(let response):
                 self.cast = response.cast
+                print(response.cast)
             case .failure(let err):
                 print(err)
             }
