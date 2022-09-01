@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NIT-EI-lVx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fhy-Ye-wfT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -185,19 +185,19 @@ superhuman strength and agility.</string>
             <point key="canvasLocation" x="1220" y="175"/>
         </scene>
         <!--Кинчик-->
-        <scene sceneID="iuJ-mp-Y3s">
+        <scene sceneID="2zm-wy-U3P">
             <objects>
-                <tableViewController id="AXE-4l-lIy" customClass="MainPageViewController" customModule="MovieDatabase" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UlW-QF-o4y">
+                <tableViewController id="hpK-8M-jyo" customClass="MainPageViewController" customModule="MovieDatabase" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6A4-f8-9sY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Pvg-iS-GNh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="I35-y5-0hz">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pvg-iS-GNh" id="XSg-nQ-kur">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I35-y5-0hz" id="2Bq-fb-17p">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -205,29 +205,29 @@ superhuman strength and agility.</string>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="AXE-4l-lIy" id="Mtc-IN-Vt4"/>
-                            <outlet property="delegate" destination="AXE-4l-lIy" id="yD1-6a-MKg"/>
+                            <outlet property="dataSource" destination="hpK-8M-jyo" id="4EE-EO-TNK"/>
+                            <outlet property="delegate" destination="hpK-8M-jyo" id="Ule-tv-RVb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Кинчик" largeTitleDisplayMode="always" id="iHf-DT-DRI">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="RTK-oz-BK9">
+                    <navigationItem key="navigationItem" title="Кинчик" largeTitleDisplayMode="always" id="IbG-Wd-u0j">
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="uZv-9e-HJE">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="1bx-QZ-y4a" kind="show" id="MxN-mh-gZX"/>
+                                <segue destination="1bx-QZ-y4a" kind="show" id="TC4-4e-lX8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-1y-nwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xr4-Rm-eDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="223" y="175"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="J1H-Q9-cPK">
+        <scene sceneID="W6G-Es-Pt9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NIT-EI-lVx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fhy-Ye-wfT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUi-H9-sqG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sz6-i7-W2g">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -241,10 +241,10 @@ superhuman strength and agility.</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="AXE-4l-lIy" kind="relationship" relationship="rootViewController" id="AMH-yg-8gw"/>
+                        <segue destination="hpK-8M-jyo" kind="relationship" relationship="rootViewController" id="oKm-C7-Xiz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jea-UN-KRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iep-Yl-Lkf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-880" y="175"/>
         </scene>
