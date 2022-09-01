@@ -16,9 +16,8 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
     }
     
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var titleOfCategory: UILabel!
     
-    var category = Category(name: "", movies: [])
+    var movies = [Movie]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,24 +31,24 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
         super.setSelected(selected, animated: animated)
     }
     
-    public func configure(with category: Category) {
-        self.category = category
-        self.titleOfCategory.text = category.name
+    public func configure(with movie: [Movie] ) {
+        self.movies = movie
         collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return category.movies.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
-        cell.configure(with: category.movies[indexPath.row])
+        cell.configure(with: movies[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:  150, height: 450)
+        return CGSize(width:  150, height: 250)
     }
+    
+    
 }
