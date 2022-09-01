@@ -6,46 +6,105 @@
 //
 
 import UIKit
-
-class DetailsViewController: UIViewController {
+import WebKit
+class DetailsViewController: UIViewController, WKNavigationDelegate {
+    
     //MARK: IBOutlets
     //buttons
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet weak var favoriteBookMarkButton: UIButton!
     @IBOutlet weak var watchButton: UIButton!
     //Image
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     //RatingView
-    @IBOutlet weak var starsRatingView: UIView!
+    @IBOutlet weak var cosmosRatingView: CosmosView!
     //main labels
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var subnameLabel: UILabel!
     //secondary labels
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
+    //table-collection view
+    @IBOutlet weak var tableView: UITableView!
+    
     //MARK: let/var
-    var addToFeature = true
+    var addedToFavorite = false
+    var movies = [Movie]()
+
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registerTableView()
+        setupRatingStars()
     }
     
     //MARK: Methods
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    private func registerTableView() {
+        tableView.register(CastTableCollectionView.nib(), forCellReuseIdentifier: CastTableCollectionView.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        addToFeature = !addToFeature
-        if addToFeature {
-            bookMarkButton.setImage(UIImage(named: "bookmark"), for: .normal)
+    private func setupRatingStars() {
+        cosmosRatingView.rating = 4.3
+        cosmosRatingView.text = "\(4.3)"
+    }
+    
+    @IBAction func addToFavoriteButtonPressed(_ sender: UIButton) {
+        if addedToFavorite == false {
+            UIView.animate(withDuration: 0.3) { [self] in
+                print("Adding a \(NameLabel.text!) movie to Favorites")
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                addedToFavorite = true
+            }
         } else {
-            bookMarkButton.setImage(UIImage(named: "bookmark.fill"), for: .normal)
+            UIView.animate(withDuration: 0.3) { [self] in
+                print("remove \(NameLabel.text!) movie from Favorites")
+                self.favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                addedToFavorite = false
+            }
+        }
+    }
+    
+    @IBAction func watchButtonPressed(_ sender: UIButton) {
+        
+        //Сайт заглушка
+        let webView : WKWebView = {
+            let preferences = WKWebpagePreferences()
+            preferences.allowsContentJavaScript = true
+            let configuration = WKWebViewConfiguration()
+            let webView = WKWebView.init(frame: view.frame, configuration: configuration)
+            return webView
+        }()
+        view.addSubview(webView)
+//        webView.customUserAgent = "iPad/Chrome/SomethingRandom"
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            webView.evaluateJavaScript("document.body.innerHTML") { result, error in
+                guard let html = result as? String, error == nil else {
+                    return
+                }
+                print(html)
+            }
         }
         
+        let adress = "https://www.kinopoisk.ru/film/102383/"
+        guard let url = URL(string: adress) else { return }
+        let request = URLRequest (url: url)
+        webView.load (request)
+    }
+}
+//MARK: Extension
+extension DetailsViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
     }
     
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CastTableCollectionView.identifier, for: indexPath) as! CastTableCollectionView
+        cell.configure(with: movies)
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
 }
