@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    
     //MARK: IBOutlets
     //buttons
     @IBOutlet weak var backButton: UIButton!
@@ -27,20 +26,9 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var castLabel: UILabel!
     //MARK: let/var
     var addToFeature = true
-    
- 
-    let managerMovie = MovieDownloadManager()
-    let managerSerial = SerialDownloadManager()
-    
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        managerMovie.getPopular()
-        //managerMovie.getCastID()
-        managerSerial.getPopular()
-        
-
 
     }
     
