@@ -15,12 +15,11 @@ class MainPageViewController: UITableViewController {
         super.viewDidLoad()
         
         var movies = [
-            Movie(title: "Spider-Man", date: "2021", imageUrl: "simpleWoman"),
-            Movie(title: "Logan", date: "2016", imageUrl: "simpleWoman"),
-            Movie(title: "Iron Man", date: "2007", imageUrl: "simpleWoman"),
-            Movie(title: "Flash", date: "2017", imageUrl: "simpleWoman"),
-            Movie(title: "Avengers", date: "2011", imageUrl: "simpleWoman"),
-        ]
+                    Movie(id: 0, title: "SpiderMan", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+                    Movie(id: 1, title: "La Casa De Papel", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+                    Movie(id: 2, title: "1+1", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+                    Movie(id: 3, title: "Harry Potter", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+                ]
         
         categories.append(Category(name: "Популярные фильмы", movies: movies))
         categories.append(Category(name: "Популярные сериалы", movies: movies))
