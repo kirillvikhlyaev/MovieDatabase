@@ -28,8 +28,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLS-xX-AML">
-                                            <rect key="frame" x="0.0" y="0.0" width="174" height="0.0"/>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLS-xX-AML">
+                                            <rect key="frame" x="0.0" y="1" width="174" height="0.0"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mQG-jZ-pYV">
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="0.0"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,49 +152,51 @@ superhuman strength and agility.</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-p0-cZ4">
-                                <rect key="frame" x="16" y="642" width="382" height="122"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="16" y="634" width="378" height="109"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gf7-N0-eG0">
-                                        <rect key="frame" x="0.0" y="44.5" width="382" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gf7-N0-eG0" customClass="CollectionTableViewCell" customModule="MovieDatabase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="378" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gf7-N0-eG0" id="FhM-Sq-5qk">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" name="backgroundColor"/>
                                         </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <color key="backgroundColor" name="backgroundColor"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1bx-QZ-y4a" id="fz9-q6-Ygm"/>
+                                    <outlet property="delegate" destination="1bx-QZ-y4a" id="3v1-ql-4u7"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t3T-Bl-Ec9"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="xAx-ax-Ut1" firstAttribute="leading" secondItem="t3T-Bl-Ec9" secondAttribute="leading" constant="16" id="3yx-9Z-b9p"/>
-                            <constraint firstItem="dqa-p0-cZ4" firstAttribute="leading" secondItem="t3T-Bl-Ec9" secondAttribute="leading" constant="16" id="6nN-Yp-PIz"/>
                             <constraint firstItem="t3T-Bl-Ec9" firstAttribute="trailing" secondItem="hNa-rt-Xsi" secondAttribute="trailing" id="EaP-AB-C27"/>
-                            <constraint firstItem="9YO-eB-MS0" firstAttribute="top" secondItem="dqa-p0-cZ4" secondAttribute="bottom" constant="37" id="GOx-Uc-nl2"/>
                             <constraint firstItem="t3T-Bl-Ec9" firstAttribute="bottom" secondItem="9YO-eB-MS0" secondAttribute="bottom" constant="16" id="Gba-zi-K7x"/>
                             <constraint firstItem="t3T-Bl-Ec9" firstAttribute="trailing" secondItem="IuR-6J-cC3" secondAttribute="trailing" id="PHJ-dc-swQ"/>
                             <constraint firstAttribute="bottom" secondItem="IuR-6J-cC3" secondAttribute="bottom" constant="400" id="Pic-mJ-n0t"/>
                             <constraint firstItem="IuR-6J-cC3" firstAttribute="top" secondItem="ZHe-52-NS9" secondAttribute="top" id="Pjq-BT-j4c"/>
                             <constraint firstItem="9YO-eB-MS0" firstAttribute="leading" secondItem="ZHe-52-NS9" secondAttribute="leadingMargin" constant="100" id="Vwv-7u-q4n"/>
                             <constraint firstItem="hNa-rt-Xsi" firstAttribute="top" secondItem="mAH-6N-WQe" secondAttribute="bottom" constant="4" id="XfR-Ly-s2W"/>
-                            <constraint firstItem="t3T-Bl-Ec9" firstAttribute="trailing" secondItem="dqa-p0-cZ4" secondAttribute="trailing" constant="16" id="YXq-k5-RWG"/>
+                            <constraint firstItem="dqa-p0-cZ4" firstAttribute="trailing" secondItem="ZHe-52-NS9" secondAttribute="trailingMargin" id="bwu-xZ-384"/>
                             <constraint firstAttribute="bottom" secondItem="mAH-6N-WQe" secondAttribute="bottom" constant="430" id="guW-sb-YuI"/>
                             <constraint firstItem="hNa-rt-Xsi" firstAttribute="centerX" secondItem="ZHe-52-NS9" secondAttribute="centerX" id="i7h-7T-f0n"/>
                             <constraint firstItem="t3T-Bl-Ec9" firstAttribute="trailing" secondItem="xAx-ax-Ut1" secondAttribute="trailing" constant="16" id="jGk-Pt-KXz"/>
+                            <constraint firstItem="9YO-eB-MS0" firstAttribute="top" secondItem="dqa-p0-cZ4" secondAttribute="bottom" constant="58" id="kLy-dx-Dz8"/>
                             <constraint firstItem="hNa-rt-Xsi" firstAttribute="leading" secondItem="t3T-Bl-Ec9" secondAttribute="leading" id="mCr-TA-85G"/>
-                            <constraint firstItem="dqa-p0-cZ4" firstAttribute="top" secondItem="xAx-ax-Ut1" secondAttribute="bottom" constant="16" id="ng3-7q-Cum"/>
                             <constraint firstItem="xAx-ax-Ut1" firstAttribute="top" secondItem="hNa-rt-Xsi" secondAttribute="bottom" constant="8" id="o4X-88-vA6"/>
+                            <constraint firstItem="dqa-p0-cZ4" firstAttribute="top" secondItem="xAx-ax-Ut1" secondAttribute="bottom" constant="8" id="s9L-uv-VoY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9YO-eB-MS0" secondAttribute="trailing" constant="100" id="t2P-QT-S3r"/>
                             <constraint firstItem="t3T-Bl-Ec9" firstAttribute="trailing" secondItem="mAH-6N-WQe" secondAttribute="trailing" constant="16" id="uUx-nY-NLq"/>
                             <constraint firstItem="IuR-6J-cC3" firstAttribute="leading" secondItem="ZHe-52-NS9" secondAttribute="leading" id="vxG-gn-eQO"/>
                             <constraint firstItem="hNa-rt-Xsi" firstAttribute="bottom" secondItem="IuR-6J-cC3" secondAttribute="bottom" id="wZ3-Kd-TPf"/>
+                            <constraint firstItem="dqa-p0-cZ4" firstAttribute="leading" secondItem="xAx-ax-Ut1" secondAttribute="leading" id="xRz-Wg-eYJ"/>
                             <constraint firstItem="mAH-6N-WQe" firstAttribute="leading" secondItem="t3T-Bl-Ec9" secondAttribute="leading" constant="16" id="y1l-p0-pgz"/>
                         </constraints>
                     </view>
@@ -310,9 +312,6 @@ superhuman strength and agility.</string>
         <namedColor name="primaryColor">
             <color red="0.84705882352941175" green="0.12156862745098039" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

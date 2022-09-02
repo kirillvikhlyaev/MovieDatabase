@@ -16,8 +16,8 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var watchButton: UIButton!
     //Image
     @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var blurView: UIVisualEffectView!
     //RatingView
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var cosmosRatingView: CosmosView!
     //main labels
     @IBOutlet weak var NameLabel: UILabel!
@@ -31,15 +31,26 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     var movieId: Int = 0
     
     //MARK: let/var
+    ///Bool добавления в израбнное.
     var addedToFavorite = false
-    var movies = [Movie]()
+//    var movies = [Movie]()
     
     let movieManager = MovieDownloadManager()
     let serialManager = SerialDownloadManager()
 
+    
+    ///Фильмы заглушки
+    var movies = [
+        Movie(id: 0, title: "SpiderMan", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+        Movie(id: 1, title: "La Casa De Papel", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+        Movie(id: 2, title: "1+1", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
+        Movie(id: 3, title: "Harry Potter", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: "")
+    ]
+    
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         registerTableView()
         setupRatingStars()
         
@@ -52,17 +63,18 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     }
     
     //MARK: Methods
+    ///Подписка на делегаты и регистрация Niba
     private func registerTableView() {
-        tableView.register(CastTableCollectionView.nib(), forCellReuseIdentifier: CastTableCollectionView.identifier)
+        self.tableView.register(CastTableViewCell.nib(), forCellReuseIdentifier: CastTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
+    ///Количество звёздочек рейтинга для фильма
     private func setupRatingStars() {
         cosmosRatingView.rating = 4.3
         cosmosRatingView.text = "\(4.3)"
     }
-    
+    ///Нажатие кнопки закладок
     @IBAction func addToFavoriteButtonPressed(_ sender: UIButton) {
         if addedToFavorite == false {
             UIView.animate(withDuration: 0.3) { [self] in
@@ -78,7 +90,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             }
         }
     }
-    
+    ///Нажатие кнопки просмотра фильма (Работает по прямой ссылке)
     @IBAction func watchButtonPressed(_ sender: UIButton) {
         
         //Сайт заглушка
@@ -90,7 +102,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             return webView
         }()
         view.addSubview(webView)
-//        webView.customUserAgent = "iPad/Chrome/SomethingRandom"
+        //        webView.customUserAgent = "iPad/Chrome/SomethingRandom"
         DispatchQueue.main.asyncAfter(deadline: .now()+5) {
             webView.evaluateJavaScript("document.body.innerHTML") { result, error in
                 guard let html = result as? String, error == nil else {
@@ -106,18 +118,23 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         webView.load (request)
     }
 }
-//MARK: Extension
+//MARK: UITableViewDelegate, UITableViewDataSource
 extension DetailsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        //Количество ячеек в вертикали.
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CastTableCollectionView.identifier, for: indexPath) as! CastTableCollectionView
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier, for: indexPath) as? CastTableViewCell else {
+            fatalError("The dequeued cell is not an instance of CastTableViewCell.")
+        }
+        cell.backgroundColor = UIColor.clear
         cell.configure(with: movies)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 135
     }
 }

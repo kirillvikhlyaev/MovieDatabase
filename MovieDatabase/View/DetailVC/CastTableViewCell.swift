@@ -6,57 +6,60 @@
 //
 
 import UIKit
-
-class CastTableCollectionView: UITableViewCell {
+//MARK: Ячейка CastTableViewCell
+class CastTableViewCell: UITableViewCell {
     
     //MARK: IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-    
     //MARK: let/var
-    static let identifier = "CastTableCollectionView"
     var movies = [Movie]()
     
+    static let identifier = "CastTableViewCell"
     static func nib() -> UINib {
-        return UINib(nibName: "CastTableCollectionView", bundle: nil)
+        return UINib(nibName: "CastTableViewCell", bundle: nil)
     }
     
     //MARK: lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.register(CastTableCollectionView.nib(), forCellWithReuseIdentifier: CastTableCollectionView.identifier)
+        self.collectionView.register(CastCollectionViewCell.nib(), forCellWithReuseIdentifier: CastCollectionViewCell.identifier)
         ///Подписка на Delegate и DataSource
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
-//MARK: Override methods
+    
+    //MARK: Override methods
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-
-//MARK: Methods
- public func configure(with movie: [Movie] ) {
-     self.movies = movie
-    collectionView.reloadData()
-}
     
+    //MARK: Methods
+    public func configure(with movie: [Movie] ) {
+        self.movies = movie
+        collectionView.reloadData()
+    }
 }
 
 //MARK: Extension
-extension CastTableCollectionView : UICollectionViewDelegate, UICollectionViewDataSource {
+extension CastTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        //количество ячеек вширь
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier, for: indexPath) as! CastCollectionViewCell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier, for: indexPath) as? CastCollectionViewCell else {
+            fatalError("The dequeued cell is not an instance of CastCollectionViewCell.")
+        }
+        cell.backgroundColor = UIColor.clear
         cell.configure(with: movies[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:  150, height: 250)
+        return CGSize(width:  100, height: 135)
     }
     
     
