@@ -52,4 +52,8 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:  150, height: 450)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("ID Фильма: \(category.movies[indexPath.row].id ?? 0)")
+    }
 }

@@ -11,18 +11,24 @@ import Kingfisher
 class MainPageViewController: UITableViewController {
     
     var categories = [Category]()
+    
+    let managerMovie = MovieDownloadManager()
+    
+    var movies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
-        var movies = [
+        movies = [
                     Movie(id: 0, title: "SpiderMan", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
                     Movie(id: 1, title: "La Casa De Papel", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
                     Movie(id: 2, title: "1+1", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
                     Movie(id: 3, title: "Harry Potter", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
                 ]
+        
+        managerMovie.delegate = self
+        managerMovie.getPopular()
         
         categories.append(Category(name: "Популярные фильмы", movies: movies))
         categories.append(Category(name: "Популярные сериалы", movies: movies))
@@ -57,4 +63,21 @@ class MainPageViewController: UITableViewController {
     }
  
 
+}
+
+extension MainPageViewController: MovieFetcher {
+    func didUpdateMovies(_ movieManager: MovieDownloadManager, movies: [Movie]) {
+        DispatchQueue.main.async {
+            self.movies = movies
+            self.categories[0] = Category(name: "Популярные фильмы", movies: self.movies)
+            self.tableView.reloadData()
+            print(self.movies.count)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    
 }
