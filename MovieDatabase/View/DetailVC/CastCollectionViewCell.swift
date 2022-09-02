@@ -12,7 +12,7 @@ class CastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var castImageView: UIImageView!
     @IBOutlet weak var castTitle: UILabel!
     @IBOutlet weak var castRole: UILabel!
-    
+    var movies = [Movie]()
     static let identifier = "CastCollectionViewCell"
     
     static func nib() -> UINib {
@@ -21,7 +21,7 @@ class CastCollectionViewCell: UICollectionViewCell {
     ///Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        castImageView.kf.indicatorType = .activity
         castImageView.makeRounded()
     }
     ///Конфигурация CastCollectionViewCell
