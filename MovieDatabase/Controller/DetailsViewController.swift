@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Kingfisher
 class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     //MARK: IBOutlets
@@ -27,9 +28,16 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //table-collection view
     @IBOutlet weak var tableView: UITableView!
     
+    var movieId: Int = 0
+    
     //MARK: let/var
     ///Bool добавления в израбнное.
     var addedToFavorite = false
+//    var movies = [Movie]()
+    
+    let movieManager = MovieDownloadManager()
+    let serialManager = SerialDownloadManager()
+
     
     ///Фильмы заглушки
     var movies = [
@@ -45,6 +53,13 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         
         registerTableView()
         setupRatingStars()
+        
+        //serialManager.getCast()
+        
+//        let url = URL(string: "https://image.tmdb.org/t/p/original/hOrV2fCw2kmSiS4ZMGFPfXqr3lt.jpg")
+//        movieImage.kf.setImage(with: url)
+        
+    
     }
     
     //MARK: Methods
