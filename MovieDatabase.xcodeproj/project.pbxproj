@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375EE8928BEC590003123A4 /* DetailsViewController.swift */; };
-		43C0CC7528C0BD1F00DC20D7 /* CastTableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7428C0BD1F00DC20D7 /* CastTableCollectionView.swift */; };
+		43C0CC7528C0BD1F00DC20D7 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7428C0BD1F00DC20D7 /* CastTableViewCell.swift */; };
 		43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */; };
-		43C0CC7928C0BE9000DC20D7 /* CastCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionView.xib */; };
+		43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */; };
 		43C0CC7B28C0BEAC00DC20D7 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7A28C0BEAC00DC20D7 /* CastTableViewCell.xib */; };
 		43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */; };
+		43E3C88928C243F600764D49 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3C88828C243F600764D49 /* Extension + UIImage.swift */; };
 		974ECAFF28C0A4DD004BE4D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 974ECAFE28C0A4DD004BE4D4 /* Alamofire */; };
 		974ECB0128C0A889004BE4D4 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECB0028C0A889004BE4D4 /* MovieDetails.swift */; };
 		ED0438AC28BFE4AF00CB5A89 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0438AB28BFE4AF00CB5A89 /* Category.swift */; };
@@ -40,11 +41,12 @@
 
 /* Begin PBXFileReference section */
 		4375EE8928BEC590003123A4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		43C0CC7428C0BD1F00DC20D7 /* CastTableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableCollectionView.swift; sourceTree = "<group>"; };
+		43C0CC7428C0BD1F00DC20D7 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
-		43C0CC7828C0BE9000DC20D7 /* CastCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionView.xib; sourceTree = "<group>"; };
+		43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7A28C0BEAC00DC20D7 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsDisturb.swift; sourceTree = "<group>"; };
+		43E3C88828C243F600764D49 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		974ECB0028C0A889004BE4D4 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		ED0438AB28BFE4AF00CB5A89 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED0438AD28BFE4BA00CB5A89 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -86,9 +88,9 @@
 		43C0CC7328C0BCE600DC20D7 /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
-				43C0CC7428C0BD1F00DC20D7 /* CastTableCollectionView.swift */,
 				43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */,
-				43C0CC7828C0BE9000DC20D7 /* CastCollectionView.xib */,
+				43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */,
+				43C0CC7428C0BD1F00DC20D7 /* CastTableViewCell.swift */,
 				43C0CC7A28C0BEAC00DC20D7 /* CastTableViewCell.xib */,
 			);
 			path = DetailVC;
@@ -109,6 +111,7 @@
 				ED0438AD28BFE4BA00CB5A89 /* Movie.swift */,
 				ED9CEEF928C094C600313607 /* Cast.swift */,
 				ED9CEEFB28C094D600313607 /* Serial.swift */,
+				43E3C88828C243F600764D49 /* Extension + UIImage.swift */,
 				43C0CC7E28C0C65800DC20D7 /* DetailStars */,
 				974ECB0028C0A889004BE4D4 /* MovieDetails.swift */,
 			);
@@ -261,7 +264,7 @@
 				EDEAD55928BF5DE000398023 /* CustomCollectionViewCell.xib in Resources */,
 				ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */,
 				ED4B61B328BCA12300CFF12F /* Main.storyboard in Resources */,
-				43C0CC7928C0BE9000DC20D7 /* CastCollectionView.xib in Resources */,
+				43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED9CEEFA28C094C600313607 /* Cast.swift in Sources */,
+				43E3C88928C243F600764D49 /* Extension + UIImage.swift in Sources */,
 				EDEAD55828BF5DE000398023 /* CustomCollectionViewCell.swift in Sources */,
 				ED0438AE28BFE4BA00CB5A89 /* Movie.swift in Sources */,
 				ED4B61B028BCA12300CFF12F /* ViewController.swift in Sources */,
@@ -290,7 +294,7 @@
 				ED9CEEF428C0946C00313607 /* NetworkService.swift in Sources */,
 				ED9CEEF028C0945200313607 /* MovieDownloadManager.swift in Sources */,
 				43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */,
-				43C0CC7528C0BD1F00DC20D7 /* CastTableCollectionView.swift in Sources */,
+				43C0CC7528C0BD1F00DC20D7 /* CastTableViewCell.swift in Sources */,
 				43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */,
 				974ECB0128C0A889004BE4D4 /* MovieDetails.swift in Sources */,
 			);
