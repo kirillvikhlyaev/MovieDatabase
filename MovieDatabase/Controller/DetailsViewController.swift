@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: let/var
     ///Bool добавления в израбнное.
     var addedToFavorite = false
-    var movies = [Movie]()
+    //var movies = [Movie]()
     var serials = [Serial]()
     
     let movieManager = MovieDownloadManager()
