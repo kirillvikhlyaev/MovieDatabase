@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B92A9A9555B8CEFBCA59FEE /* Pods_MovieDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */; };
 		4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375EE8928BEC590003123A4 /* DetailsViewController.swift */; };
 		43C0CC7528C0BD1F00DC20D7 /* CastTableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7428C0BD1F00DC20D7 /* CastTableCollectionView.swift */; };
 		43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */; };
@@ -47,6 +48,9 @@
 		43C0CC7A28C0BEAC00DC20D7 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsDisturb.swift; sourceTree = "<group>"; };
 		974ECB0028C0A889004BE4D4 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C574988876B4F831F7BC27F8 /* Pods-MovieDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDatabase.debug.xcconfig"; path = "Target Support Files/Pods-MovieDatabase/Pods-MovieDatabase.debug.xcconfig"; sourceTree = "<group>"; };
+		D00AF0DF04F9CF6624BE382C /* Pods-MovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDatabase.release.xcconfig"; path = "Target Support Files/Pods-MovieDatabase/Pods-MovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		ED0438AB28BFE4AF00CB5A89 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED0438AD28BFE4BA00CB5A89 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		ED4B61A828BCA12300CFF12F /* MovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,12 +83,23 @@
 			files = (
 				974ECB0A28C11BC8004BE4D4 /* Kingfisher in Frameworks */,
 				974ECAFF28C0A4DD004BE4D4 /* Alamofire in Frameworks */,
+				2B92A9A9555B8CEFBCA59FEE /* Pods_MovieDatabase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		404C187A7BA8B8ED22BD17F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C574988876B4F831F7BC27F8 /* Pods-MovieDatabase.debug.xcconfig */,
+				D00AF0DF04F9CF6624BE382C /* Pods-MovieDatabase.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		43C0CC7328C0BCE600DC20D7 /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +117,14 @@
 				43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */,
 			);
 			path = DetailStars;
+			sourceTree = "<group>";
+		};
+		4E2E70DB059CCE699E1BD24B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ED0438AA28BFE49B00CB5A89 /* Model */ = {
@@ -122,6 +145,8 @@
 			children = (
 				ED4B61AA28BCA12300CFF12F /* MovieDatabase */,
 				ED4B61A928BCA12300CFF12F /* Products */,
+				404C187A7BA8B8ED22BD17F9 /* Pods */,
+				4E2E70DB059CCE699E1BD24B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED4B61BC28BCA12500CFF12F /* Build configuration list for PBXNativeTarget "MovieDatabase" */;
 			buildPhases = (
+				B91D9FF5431464D69A379CC4 /* [CP] Check Pods Manifest.lock */,
 				ED4B61A428BCA12300CFF12F /* Sources */,
 				ED4B61A528BCA12300CFF12F /* Frameworks */,
 				ED4B61A628BCA12300CFF12F /* Resources */,
@@ -243,7 +269,7 @@
 			mainGroup = ED4B619F28BCA12300CFF12F;
 			packageReferences = (
 				974ECAFD28C0A4DD004BE4D4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = ED4B61A928BCA12300CFF12F /* Products */;
 			projectDirPath = "";
@@ -270,6 +296,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B91D9FF5431464D69A379CC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MovieDatabase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED4B61A428BCA12300CFF12F /* Sources */ = {
@@ -440,6 +491,7 @@
 		};
 		ED4B61BD28BCA12500CFF12F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C574988876B4F831F7BC27F8 /* Pods-MovieDatabase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -468,6 +520,7 @@
 		};
 		ED4B61BE28BCA12500CFF12F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00AF0DF04F9CF6624BE382C /* Pods-MovieDatabase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -526,7 +579,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -544,7 +597,7 @@
 		};
 		974ECB0928C11BC8004BE4D4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

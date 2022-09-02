@@ -6,10 +6,17 @@
 
 import Foundation
 
+protocol MovieFetcher {
+    func didUpdateMovies(_ movieManager: MovieDownloadManager, movies: [Movie])
+    func didFailWithError(error: Error)
+}
+
 final class MovieDownloadManager  {
     var movies = [Movie]()
     var cast = [Cast]()
     var movie = Movie()
+    
+    var delegate: MovieFetcher?
     
     static var baseURL = "https://api.themoviedb.org/3/"
     
@@ -37,9 +44,11 @@ final class MovieDownloadManager  {
             switch result {
             case .success(let movieResponse):
                 self.movies = movieResponse.results
-                print(movieResponse)
+                print(self.movies.count)
+                self.delegate?.didUpdateMovies(self, movies: self.movies)
             case .failure(let err):
                 print(err)
+                self.delegate?.didFailWithError(error: err)
             }
         }
     }

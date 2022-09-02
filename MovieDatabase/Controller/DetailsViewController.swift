@@ -28,6 +28,8 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //table-collection view
     @IBOutlet weak var tableView: UITableView!
     
+    var movieId: Int = 0
+    
     //MARK: let/var
     var addedToFavorite = false
     var movies = [Movie]()

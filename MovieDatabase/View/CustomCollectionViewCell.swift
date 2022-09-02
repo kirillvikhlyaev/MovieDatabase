@@ -13,6 +13,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet var date: UILabel!
     @IBOutlet var imageView: UIImageView!
     
+    var movieId: Int = 0
+    
     static let identifier = "CustomCollectionViewCell"
     
     static func nib() -> UINib {
@@ -25,6 +27,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
 
     public func configure(with movie: Movie) {
+        self.movieId = movie.id ?? 0
         self.title.text = movie.title ?? "title"
         self.date.text = movie.release_date ?? "release_date"
         self.imageView.image = UIImage(named: "simpleWoman")
