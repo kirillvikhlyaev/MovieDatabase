@@ -35,6 +35,7 @@ class MainPageViewController: UITableViewController {
         categories.append(Category(name: "Просмотренные недавно", movies: movies))
         
         tableView.register(CollectionTableViewCell.nib(), forCellReuseIdentifier: CollectionTableViewCell.identifier)
+       
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,3 +83,5 @@ extension MainPageViewController: MovieFetcher {
     
     
 }
+
+

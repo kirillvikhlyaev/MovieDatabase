@@ -33,6 +33,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: let/var
     var addedToFavorite = false
     var movies = [Movie]()
+    var serials = [Serial]()
     
     let movieManager = MovieDownloadManager()
     let serialManager = SerialDownloadManager()
@@ -45,9 +46,13 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         
         //serialManager.getCast()
         
-//        let url = URL(string: "https://image.tmdb.org/t/p/original/hOrV2fCw2kmSiS4ZMGFPfXqr3lt.jpg")
-//        movieImage.kf.setImage(with: url)
-        
+//        if let url = URL(string: "\(movies[12])") {
+//            movieImage.kf.setImage(with: url)
+//            }
+//        else {
+//            let url2 = URL(string: "https://image.tmdb.org/t/p/original/\(serials[7])")
+//                movieImage.kf.setImage(with: url2)
+//            }
     
     }
     

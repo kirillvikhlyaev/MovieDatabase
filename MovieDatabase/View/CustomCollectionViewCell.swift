@@ -34,4 +34,5 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let url = URL(string: "\(movie.posterPath)")
         self.imageView.kf.setImage(with: url)
     }
+    
 }

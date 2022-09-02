@@ -260,10 +260,13 @@ superhuman strength and agility.</string>
                         <barButtonItem key="rightBarButtonItem" title="Test" id="RTK-oz-BK9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="1bx-QZ-y4a" kind="show" id="MxN-mh-gZX"/>
+                                <segue destination="1bx-QZ-y4a" kind="show" identifier="" id="MxN-mh-gZX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="1bx-QZ-y4a" kind="presentation" identifier="goToDetails" modalPresentationStyle="fullScreen" id="dmV-Zf-Hwn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjX-1y-nwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,6 +304,9 @@ superhuman strength and agility.</string>
             <size key="intrinsicContentSize" width="145" height="25"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="dmV-Zf-Hwn"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="simpleWoman" width="3840" height="2160"/>
