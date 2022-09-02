@@ -72,6 +72,7 @@ extension MainPageViewController: MovieFetcher {
             self.categories[0] = Category(name: "Популярные фильмы", movies: self.movies)
             self.tableView.reloadData()
             print(self.movies.count)
+            //print(self.movies[0].id)
         }
     }
     

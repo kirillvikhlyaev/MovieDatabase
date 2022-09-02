@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
@@ -30,6 +31,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         self.movieId = movie.id ?? 0
         self.title.text = movie.title ?? "title"
         self.date.text = movie.release_date ?? "release_date"
-        self.imageView.image = UIImage(named: "simpleWoman")
+        let url = URL(string: "\(movie.posterPath)")
+        self.imageView.kf.setImage(with: url)
     }
 }
