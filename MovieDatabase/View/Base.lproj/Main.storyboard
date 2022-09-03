@@ -299,6 +299,7 @@ superhuman strength and agility.</string>
             <point key="canvasLocation" x="-880" y="175"/>
         </scene>
     </scenes>
+
     <designables>
         <designable name="zcH-HA-HVR">
             <size key="intrinsicContentSize" width="145" height="25"/>

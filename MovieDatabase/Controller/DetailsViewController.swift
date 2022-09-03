@@ -33,12 +33,14 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: let/var
     ///Bool добавления в израбнное.
     var addedToFavorite = false
+
     //var movies = [Movie]()
     var serials = [Serial]()
     
+    let defaults = UserDefaults.standard
     let movieManager = MovieDownloadManager()
     let serialManager = SerialDownloadManager()
-
+    
     
     ///Фильмы заглушки
     var movies = [
@@ -52,6 +54,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkFavorite()
         registerTableView()
         setupRatingStars()
         
@@ -68,6 +71,17 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     }
     
     //MARK: Methods
+    ///Проверка наличия имени фильма в UserDefaults.
+    private func checkFavorite() {
+        if (defaults.value(forKey: "\(NameLabel.text!)") != nil) {
+            favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            addedToFavorite = true
+            print("При проверке фильм добавлен в избранное")
+        } else {
+            print("При проверке фильм не добавлен в избранное")
+            favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
     ///Подписка на делегаты и регистрация Niba
     private func registerTableView() {
         self.tableView.register(CastTableViewCell.nib(), forCellReuseIdentifier: CastTableViewCell.identifier)
@@ -86,11 +100,18 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
                 print("Adding a \(NameLabel.text!) movie to Favorites")
                 favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 addedToFavorite = true
+                UserDefaults.resetStandardUserDefaults()
+                defaults.value(forKey: "\(NameLabel.text!)")
+                defaults.set(addedToFavorite, forKey: "\(NameLabel.text!)")
             }
+            
         } else {
             UIView.animate(withDuration: 0.3) { [self] in
                 print("remove \(NameLabel.text!) movie from Favorites")
-                self.favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                defaults.removeObject(forKey: "\(NameLabel.text!)")
+                UserDefaults.standard.removeObject(forKey: "\(NameLabel.text!)")
+                UserDefaults.resetStandardUserDefaults()
                 addedToFavorite = false
             }
         }
