@@ -55,5 +55,6 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("ID Фильма: \(category.movies[indexPath.row].id ?? 0)")
+        //performSegue(withIdentifier: "goToDetails", sender: self)
     }
 }

@@ -35,6 +35,7 @@ class MainPageViewController: UITableViewController {
         categories.append(Category(name: "Просмотренные недавно", movies: movies))
         
         tableView.register(CollectionTableViewCell.nib(), forCellReuseIdentifier: CollectionTableViewCell.identifier)
+       
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +73,7 @@ extension MainPageViewController: MovieFetcher {
             self.categories[0] = Category(name: "Популярные фильмы", movies: self.movies)
             self.tableView.reloadData()
             print(self.movies.count)
+            //print(self.movies[0].id)
         }
     }
     
@@ -81,3 +83,5 @@ extension MainPageViewController: MovieFetcher {
     
     
 }
+
+
