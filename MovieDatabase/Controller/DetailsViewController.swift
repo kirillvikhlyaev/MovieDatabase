@@ -54,9 +54,9 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkFavorite()
+        //checkFavorite()
         registerTableView()
-        setupRatingStars()
+        //setupRatingStars()
         
         //serialManager.getCast()
         

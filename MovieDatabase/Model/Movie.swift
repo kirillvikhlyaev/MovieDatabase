@@ -12,7 +12,7 @@ struct MovieResponse: Codable {
     var results: [Movie]
 }
 
-struct Movie: Codable, Identifiable{
+struct Movie: Codable, Identifiable, Collectable {
     var id: Int?
     var title: String?
     var original_language: String?

@@ -13,8 +13,11 @@ class MainPageViewController: UITableViewController {
     var categories = [Category]()
     
     let managerMovie = MovieDownloadManager()
+    let managerSerial = SerialDownloadManager()
     
     var movies = [Movie]()
+    
+    var serials = [Serial]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +30,18 @@ class MainPageViewController: UITableViewController {
                     Movie(id: 3, title: "Harry Potter", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
                 ]
         
+        serials = [
+            Serial(backdropPath: "", firstAirDate: "", genreIDS: [], id: 0, name: "", originCountry: [], originalLanguage: "", originalName: "", overview: "", popularity: 0, posterPath: "", voteAverage: 0, voteCount: 0)
+        ]
+        
         managerMovie.delegate = self
         managerMovie.getPopular()
         
+        managerSerial.delegate = self
+        managerSerial.getPopular()
+        
         categories.append(Category(name: "Популярные фильмы", movies: movies))
-        categories.append(Category(name: "Популярные сериалы", movies: movies))
+        categories.append(Category(name: "Популярные сериалы", movies: serials))
         categories.append(Category(name: "Просмотренные недавно", movies: movies))
         
         tableView.register(CollectionTableViewCell.nib(), forCellReuseIdentifier: CollectionTableViewCell.identifier)
@@ -44,7 +54,6 @@ class MainPageViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView , cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as! CollectionTableViewCell
-        print("indexPath \(indexPath.row)")
         if (indexPath.row == 0) {
             
             cell.configure(with: categories[0])
@@ -72,7 +81,7 @@ extension MainPageViewController: MovieFetcher {
             self.movies = movies
             self.categories[0] = Category(name: "Популярные фильмы", movies: self.movies)
             self.tableView.reloadData()
-            print(self.movies.count)
+            print("Количество загруженных фильмов - \(self.movies.count)")
             //print(self.movies[0].id)
         }
     }
@@ -80,7 +89,17 @@ extension MainPageViewController: MovieFetcher {
     func didFailWithError(error: Error) {
         print(error)
     }
-    
+}
+
+extension MainPageViewController: SerialFetcher {
+    func didUpdateSeries(_ serialManager: SerialDownloadManager, movies: [Serial]) {
+        DispatchQueue.main.async {
+            self.serials = movies
+            self.categories[1] = Category(name: "Популярные сериалы", movies: self.serials)
+            self.tableView.reloadData()
+            print("Количество загруженных сериалов - \(self.serials.count)")
+        }
+    }
     
 }
 
