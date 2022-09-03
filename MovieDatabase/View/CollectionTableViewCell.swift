@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol CollectionViewDelegate {
+    func cellTaped(data: Int)
+}
+
 class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICollectionViewDataSource {
     
     static let identifier = "CollectionTableViewCell"
@@ -50,11 +55,10 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:  150, height: 450)
+        return CGSize(width:  10, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("ID Фильма: \(category.movies[indexPath.row].id ?? 0)")
-        //performSegue(withIdentifier: "goToDetails", sender: self)
+        
     }
 }
