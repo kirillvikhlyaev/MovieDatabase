@@ -35,9 +35,10 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     var addedToFavorite = false
     let defaults = UserDefaults.standard
     //    var movies = [Movie]()
-    
     let movieManager = MovieDownloadManager()
     let serialManager = SerialDownloadManager()
+    // градиент
+    private var gradient: CAGradientLayer!
     
     
     ///Фильмы заглушки
@@ -48,10 +49,10 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         Movie(id: 3, title: "Harry Potter", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: "")
     ]
     
-    //MARK: lifecycle
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupGradient()
         checkFavorite()
         registerTableView()
         setupRatingStars()
@@ -60,9 +61,13 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         
         //        let url = URL(string: "https://image.tmdb.org/t/p/original/hOrV2fCw2kmSiS4ZMGFPfXqr3lt.jpg")
         //        movieImage.kf.setImage(with: url)
-        
-        
     }
+    //MARK: viewDidLayoutSubviews
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        gradient.frame = movieImage.bounds
+    }
+    
     
     //MARK: Methods
     ///Проверка наличия имени фильма в UserDefaults.
@@ -76,6 +81,14 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
+    private func setupGradient() {
+        // настройка градиента
+        gradient = CAGradientLayer()
+        gradient.frame = movieImage.bounds
+        gradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
+        gradient.locations = [0.0, 0.4, 0.8, 0.9, 1.0]
+        movieImage.layer.mask = gradient
+    }
     ///Подписка на делегаты и регистрация Niba
     private func registerTableView() {
         self.tableView.register(CastTableViewCell.nib(), forCellReuseIdentifier: CastTableViewCell.identifier)
@@ -87,6 +100,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         cosmosRatingView.rating = 4.3
         cosmosRatingView.text = "\(4.3)"
     }
+    //MARK: @IBActionЧ
     ///Нажатие кнопки закладок
     @IBAction func addToFavoriteButtonPressed(_ sender: UIButton) {
         if addedToFavorite == false {

@@ -41,7 +41,7 @@
                                                 <blurEffect style="regular"/>
                                             </vibrancyEffect>
                                         </visualEffectView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcH-HA-HVR" userLabel="cosmosRatingView" customClass="CosmosView" customModule="MovieDatabase" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcH-HA-HVR" userLabel="cosmosRatingView" customClass="CosmosView" customModule="MovieDatabase" customModuleProvider="target">
                                             <rect key="frame" x="134.5" y="1" width="145" height="24"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <userDefinedRuntimeAttributes>
@@ -76,6 +76,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" name="backgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="zcH-HA-HVR" firstAttribute="centerY" secondItem="P9P-JY-Tbo" secondAttribute="centerY" id="311-uy-Yq7"/>
                                         <constraint firstItem="zcH-HA-HVR" firstAttribute="top" secondItem="SLS-xX-AML" secondAttribute="top" id="DKo-GH-B8P"/>
