@@ -35,7 +35,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     let defaults = UserDefaults.standard
     
-    var cast = [Cast]()
+    var cast : [Cast] = []
     private var gradient: CAGradientLayer!
     
     //MARK: viewDidLoad
@@ -58,6 +58,11 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
             ratingView.text = ""
             descriptionText.text = movieObject.overview
+            
+            let movieManager = MovieDownloadManager()
+            movieManager.castDelegate = self
+            movieManager.getCast(for: movieObject.id ?? 0)
+            
         } else if (mediaObject is Serial) {
             let serialObject = mediaObject as! Serial
             let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
@@ -66,10 +71,14 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             NameLabel.text = serialObject.name
             subnameLabel.text = serialObject.firstAirDate
             ratingView.rating = Double(Int(serialObject.voteAverage / 2))
-            print("")
             ratingView.text = ""
             //            String(format: "%.0f", serialObject.voteAverage / 2 )
             descriptionText.text = serialObject.overview
+            
+            let serialManager = SerialDownloadManager()
+            serialManager.castDelegate = self
+            serialManager.getCast(for: serialObject.id)
+            
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
         }
@@ -189,13 +198,14 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
 //MARK: UITableViewDelegate, UITableViewDataSource
 extension DetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return cast.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier, for: indexPath) as? CastCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of CastTableViewCell.")
         }
+        cell.configure(with: self.cast[indexPath.row])
         cell.backgroundColor = UIColor.clear
         
         return cell
@@ -207,5 +217,29 @@ extension DetailsViewController : UICollectionViewDelegate, UICollectionViewData
 extension DetailsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         movieImage.alpha = scrollView.contentOffset.y / -91.0
+    }
+}
+
+extension DetailsViewController: SerialCastFetcher {
+    func didUpdateCast(_ serialManager: SerialDownloadManager, cast: [Cast]) {
+        print("Количество актеров: \(cast.count)")
+        self.cast = cast
+        DispatchQueue.main.async {
+            self.castCollectionView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print("Выкачка каста не удалась: \(error)")
+    }
+}
+
+extension DetailsViewController: MovieCastFetcher {
+    func didUpdateCast(_ movieManager: MovieDownloadManager, cast: [Cast]) {
+        print("Количество актеров: \(cast.count)")
+        self.cast = cast
+        DispatchQueue.main.async {
+            self.castCollectionView.reloadData()
+        }
     }
 }
