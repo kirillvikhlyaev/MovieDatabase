@@ -11,8 +11,9 @@ protocol MovieFetcher {
     func didFailWithError(error: Error)
 }
 
-protocol castFetcher {
+protocol MovieCastFetcher {
     func didUpdateCast(_ movieManager: MovieDownloadManager, cast: [Cast])
+    func didFailWithError(error: Error)
 }
 
 final class MovieDownloadManager  {
@@ -21,6 +22,7 @@ final class MovieDownloadManager  {
     var movie = Movie()
     
     var delegate: MovieFetcher?
+    var castDelegate: MovieCastFetcher?
     
     static var baseURL = "https://api.themoviedb.org/3/"
     
@@ -28,17 +30,15 @@ final class MovieDownloadManager  {
         getMovies(movieUrl: .discover)
     }
     
-    
-    //(movie.id ?? 100)
-    func getCast(for movie: Movie) {
-        let urlString = "\(Self.baseURL)movie/\(movie.id ?? 100)/credits?api_key=\(API.key)&language=en-US"
+    func getCast(for movieId: Int) {
+        let urlString = "\(Self.baseURL)movie/\(movieId)/credits?api_key=\(API.key)&language=ru-RU"
         NetworkManager<CastResponse>.fetch(from: urlString) { (result) in
             switch result {
             case .success(let response):
                 self.cast = response.cast
-                print(response.cast)
+                self.castDelegate?.didUpdateCast(self, cast: self.cast)
             case .failure(let err):
-                print(err)
+                self.castDelegate?.didFailWithError(error: err)
             }
         }
     }
@@ -48,10 +48,8 @@ final class MovieDownloadManager  {
             switch result {
             case .success(let movieResponse):
                 self.movies = movieResponse.results
-                print(self.movies.count)
                 self.delegate?.didUpdateMovies(self, movies: self.movies)
             case .failure(let err):
-                print(err)
                 self.delegate?.didFailWithError(error: err)
             }
         }

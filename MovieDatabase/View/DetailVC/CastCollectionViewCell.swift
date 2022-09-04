@@ -6,6 +6,7 @@
 //
 //MARK: Ячейка CastCollectionViewCell с актерами
 import UIKit
+import Kingfisher
 
 class CastCollectionViewCell: UICollectionViewCell {
     //MARK: IBOutlet
@@ -27,7 +28,8 @@ class CastCollectionViewCell: UICollectionViewCell {
     ///Конфигурация CastCollectionViewCell
     public func configure(with cast: Cast) {
         self.castTitle.text = cast.originalName
-        self.castRole.text = cast.name
-        self.castImageView.image = UIImage(named: "simpleWoman")
+        self.castRole.text = cast.character ?? "Актер"
+        let url = URL(string: cast.profilePhoto ?? "https://www.viewsontop.com/wp-content/uploads/2020/01/placeholder.png")
+        self.castImageView.kf.setImage(with: url)
     }
 }

@@ -13,7 +13,6 @@
 		43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */; };
 		43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */; };
 		43E3C88928C243F600764D49 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3C88828C243F600764D49 /* Extension + UIImage.swift */; };
-		43E3C88D28C27FC500764D49 /* appLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E3C88C28C27FC400764D49 /* appLogo.png */; };
 		974ECAFF28C0A4DD004BE4D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 974ECAFE28C0A4DD004BE4D4 /* Alamofire */; };
 		974ECB0128C0A889004BE4D4 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECB0028C0A889004BE4D4 /* MovieDetails.swift */; };
 		974ECB0A28C11BC8004BE4D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 974ECB0928C11BC8004BE4D4 /* Kingfisher */; };
@@ -39,6 +38,7 @@
 		ED9CEEFA28C094C600313607 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9CEEF928C094C600313607 /* Cast.swift */; };
 		ED9CEEFC28C094D600313607 /* Serial.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9CEEFB28C094D600313607 /* Serial.swift */; };
 		EDEAD55528BF5D2000398023 /* MovieSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAD55428BF5D2000398023 /* MovieSelectorViewController.swift */; };
+		EDED88CD28C53EB9002FC5C4 /* FetchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED88CC28C53EB9002FC5C4 /* FetchHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,6 @@
 		43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsDisturb.swift; sourceTree = "<group>"; };
 		43E3C88828C243F600764D49 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
-		43E3C88C28C27FC400764D49 /* appLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appLogo.png; sourceTree = "<group>"; };
 		974ECB0028C0A889004BE4D4 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C574988876B4F831F7BC27F8 /* Pods-MovieDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDatabase.debug.xcconfig"; path = "Target Support Files/Pods-MovieDatabase/Pods-MovieDatabase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		ED9CEEF928C094C600313607 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		ED9CEEFB28C094D600313607 /* Serial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serial.swift; sourceTree = "<group>"; };
 		EDEAD55428BF5D2000398023 /* MovieSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSelectorViewController.swift; sourceTree = "<group>"; };
+		EDED88CC28C53EB9002FC5C4 /* FetchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				ED4B61B428BCA12500CFF12F /* Assets.xcassets */,
-				43E3C88C28C27FC400764D49 /* appLogo.png */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,6 +239,7 @@
 				ED9CEEF328C0946C00313607 /* NetworkService.swift */,
 				ED9CEEEF28C0945200313607 /* MovieDownloadManager.swift */,
 				ED9CEEF528C0947600313607 /* SerialDownloadManager.swift */,
+				EDED88CC28C53EB9002FC5C4 /* FetchHandler.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -311,7 +311,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43E3C88D28C27FC500764D49 /* appLogo.png in Resources */,
 				ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */,
 				ED4B61B528BCA12500CFF12F /* Assets.xcassets in Resources */,
 				ED52548728C489C30045A69A /* MovieCell.xib in Resources */,
@@ -367,6 +366,7 @@
 				ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */,
 				ED9CEEF228C0946300313607 /* MovieURL.swift in Sources */,
 				ED9CEEFC28C094D600313607 /* Serial.swift in Sources */,
+				EDED88CD28C53EB9002FC5C4 /* FetchHandler.swift in Sources */,
 				4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */,
 				ED0438AC28BFE4AF00CB5A89 /* Category.swift in Sources */,
 				ED52548628C489C30045A69A /* MovieCell.swift in Sources */,

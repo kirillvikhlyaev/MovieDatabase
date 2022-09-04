@@ -8,7 +8,12 @@
 import Foundation
 
 protocol SerialFetcher {
-    func didUpdateSeries(_ serialManager: SerialDownloadManager, movies: [Serial])
+    func didUpdateSeries(_ serialManager: SerialDownloadManager, serials: [Serial])
+    func didFailWithError(error: Error)
+}
+
+protocol SerialCastFetcher {
+    func didUpdateCast(_ serialManager: SerialDownloadManager, cast: [Cast])
     func didFailWithError(error: Error)
 }
 
@@ -19,20 +24,22 @@ final class SerialDownloadManager  {
     static var baseURL = "https://api.themoviedb.org/3/"
     
     var delegate: SerialFetcher?
+    var castDelegate: SerialCastFetcher?
     
     func getPopular() {
         getSerials(serialUrl: .discover)
     }
     
     //(serial.id ?? 100)
-    func getCast(for serial: Serial) {
-        let urlString = "\(Self.baseURL)tv/\(serial.id)/credits?api_key=\(API.key)&language=en-US"
+    func getCast(for serialId: Int) {
+        let urlString = "\(Self.baseURL)tv/\(serialId)/credits?api_key=\(API.key)&language=ru-RU"
         NetworkManager<CastResponse>.fetch(from: urlString) { (result) in
             switch result {
             case .success(let response):
                 self.cast = response.cast
+                self.castDelegate?.didUpdateCast(self, cast: self.cast)
             case .failure(let err):
-                self.delegate?.didFailWithError(error: err)
+                self.castDelegate?.didFailWithError(error: err)
             }
         }
     }
@@ -42,7 +49,7 @@ final class SerialDownloadManager  {
             switch result {
             case .success(let serialResponse):
                 self.serials = serialResponse.results
-                self.delegate?.didUpdateSeries(self, movies: self.serials)
+                self.delegate?.didUpdateSeries(self, serials: self.serials)
             case .failure(let err):
                 self.delegate?.didFailWithError(error: err)
             }
