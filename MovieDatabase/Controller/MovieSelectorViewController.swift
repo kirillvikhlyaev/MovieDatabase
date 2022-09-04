@@ -100,6 +100,9 @@ extension MovieSelectorViewController: UICollectionViewDelegate {
             DispatchQueue.main.async {
                 self.watchedRecentlyCollectionView.reloadData()
             }
+        } else if collectionView == watchedRecentlyCollectionView {
+            let media = watchedMovies[indexPath.row]
+            detailView.mediaObject = media
         }
         
         self.navigationController?.pushViewController(detailView, animated: true)
