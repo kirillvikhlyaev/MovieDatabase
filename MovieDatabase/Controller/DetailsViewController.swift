@@ -17,16 +17,15 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //Image
     @IBOutlet weak var movieImage: UIImageView!
     //RatingView
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var cosmosRatingView: CosmosView!
+    @IBOutlet weak var ratingView: CosmosView!
     //main labels
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var subnameLabel: UILabel!
     //secondary labels
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var castLabel: UILabel!
-    //table-collection view
-    @IBOutlet weak var tableView: UITableView!
+    //Collection view
+    @IBOutlet weak var castCollectionView: UICollectionView!
     
     var mediaObject: Collectable? = nil
     
@@ -37,11 +36,12 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     let defaults = UserDefaults.standard
     
     var cast = [Cast]()
-    
+    private var gradient: CAGradientLayer!
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         setupGradient()
         checkFavorite()
         print("DetailViewController: я получил - \(mediaObject)")
@@ -56,7 +56,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             NameLabel.text = movieObject.title
             subnameLabel.text = movieObject.release_date
             
-            descriptionLabel.text = movieObject.overview
+            descriptionText.text = movieObject.overview
         } else if (mediaObject is Serial) {
             let serialObject = mediaObject as! Serial
             let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
@@ -65,7 +65,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             NameLabel.text = serialObject.name
             subnameLabel.text = serialObject.firstAirDate
             
-            descriptionLabel.text = serialObject.overview
+            descriptionText.text = serialObject.overview
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
         }
@@ -105,19 +105,19 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         gradient = CAGradientLayer()
         gradient.frame = movieImage.bounds
         gradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
-        gradient.locations = [0.0, 0.4, 0.8, 0.9, 1.0]
+        gradient.locations = [0.0, 0.4, 1, 0.9, 1.0]
         movieImage.layer.mask = gradient
     }
     ///Подписка на делегаты и регистрация Niba
     private func registerTableView() {
-        self.tableView.register(CastTableViewCell.nib(), forCellReuseIdentifier: CastTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
+        castCollectionView.register(CastCollectionViewCell.nib(), forCellWithReuseIdentifier: CastCollectionViewCell.identifier)
+        castCollectionView.backgroundColor = .none
+        castCollectionView.dataSource = self
     }
     ///Количество звёздочек рейтинга для фильма
     private func setupRatingStars() {
-        cosmosRatingView.rating = 4.3
-        cosmosRatingView.text = "\(4.3)"
+        ratingView.rating = 4.3
+        ratingView.text = "\(4.3)"
     }
     //MARK: @IBActionЧ
     ///Нажатие кнопки закладок
@@ -172,22 +172,25 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     }
 }
 //MARK: UITableViewDelegate, UITableViewDataSource
-extension DetailsViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Количество ячеек в вертикали.
-        return 1
+extension DetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier, for: indexPath) as? CastTableViewCell else {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier, for: indexPath) as? CastCollectionViewCell else {
             fatalError("The dequeued cell is not an instance of CastTableViewCell.")
         }
         cell.backgroundColor = UIColor.clear
-        cell.configure(with: cast)
+        
         return cell
-    }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 135
+    }
+
+}
+
+extension DetailsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        movieImage.alpha = scrollView.contentOffset.y / -91.0
     }
 }
