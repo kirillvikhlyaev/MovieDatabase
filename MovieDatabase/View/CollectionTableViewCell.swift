@@ -41,6 +41,7 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
         self.category = category
         self.titleOfCategory.text = category.name
         collectionView.reloadData()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,10 +53,6 @@ class CollectionTableViewCell: UITableViewCell, UICollectionViewDelegate,  UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
         cell.configure(with: category.movies[indexPath.row])
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:  10, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
