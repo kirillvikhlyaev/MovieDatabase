@@ -24,7 +24,7 @@ struct Cast: Codable {
     let creditID: String
     let order: Int?
     let department, job: String?
-    var profilePhoto: String {
+    var profilePhoto: String? {
             if let path = profilePath {
                 return "https://image.tmdb.org/t/p/original/\(path)"
             }

@@ -12,7 +12,7 @@ class CastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var castImageView: UIImageView!
     @IBOutlet weak var castTitle: UILabel!
     @IBOutlet weak var castRole: UILabel!
-    var movies = [Movie]()
+    var casst = [Cast]()
     static let identifier = "CastCollectionViewCell"
     
     static func nib() -> UINib {
@@ -25,9 +25,9 @@ class CastCollectionViewCell: UICollectionViewCell {
         castImageView.makeRounded()
     }
     ///Конфигурация CastCollectionViewCell
-    public func configure(with movie: Movie) {
-        self.castTitle.text = movie.title ?? "title"
-        self.castRole.text = movie.original_language ?? "original language"
-        self.castImageView.image = UIImage(named: movie.posterPath) ?? UIImage(named: "simpleWoman")
+    public func configure(with cast: Cast) {
+        self.castTitle.text = cast.originalName
+        self.castRole.text = cast.name
+        self.castImageView.image = UIImage(named: "simpleWoman")
     }
 }

@@ -12,7 +12,7 @@ class CastTableViewCell: UITableViewCell {
     //MARK: IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
     //MARK: let/var
-    var movies = [Movie]()
+    var cast = [Cast]()
     
     static let identifier = "CastTableViewCell"
     static func nib() -> UINib {
@@ -35,8 +35,8 @@ class CastTableViewCell: UITableViewCell {
     
     
     //MARK: Methods
-    public func configure(with movie: [Movie] ) {
-        self.movies = movie
+    public func configure(with cast: [Cast]) {
+        self.cast = cast
         collectionView.reloadData()
     }
 }
@@ -54,7 +54,7 @@ extension CastTableViewCell : UICollectionViewDelegate, UICollectionViewDataSour
             fatalError("The dequeued cell is not an instance of CastCollectionViewCell.")
         }
         cell.backgroundColor = UIColor.clear
-        cell.configure(with: movies[indexPath.row])
+//        cell.configure(with: cast[indexPath.row])
         return cell
     }
     

@@ -11,6 +11,10 @@ protocol MovieFetcher {
     func didFailWithError(error: Error)
 }
 
+protocol castFetcher {
+    func didUpdateCast(_ movieManager: MovieDownloadManager, cast: [Cast])
+}
+
 final class MovieDownloadManager  {
     var movies = [Movie]()
     var cast = [Cast]()
