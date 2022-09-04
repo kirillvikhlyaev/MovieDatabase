@@ -68,7 +68,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             ratingView.rating = Double(Int(serialObject.voteAverage / 2))
             print("")
             ratingView.text = ""
-//            String(format: "%.0f", serialObject.voteAverage / 2 )
+            //            String(format: "%.0f", serialObject.voteAverage / 2 )
             descriptionText.text = serialObject.overview
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
@@ -83,15 +83,26 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: Methods
     ///Проверка наличия имени фильма в UserDefaults.
     private func checkFavorite() {
-        if (defaults.value(forKey: "\(NameLabel.text!)") != nil) {
-            favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            addedToFavorite = true
-            print("При проверке фильм добавлен в избранное")
+        if (mediaObject is Movie) {
+            let movieObject = mediaObject as! Movie
+            if (defaults.value(forKey: "\(movieObject.title ?? "wonderWoman")") != nil) {
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                addedToFavorite = true
+                print("При проверке фильм добавлен в избранное")
+            }
+        } else  if (mediaObject is Serial) {
+            let serialObject = mediaObject as! Serial
+            if (defaults.value(forKey: "\(serialObject.name ?? "wonderWoman")") != nil) {
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                addedToFavorite = true
+                print("При проверке фильм добавлен в избранное")
+            }
         } else {
             print("При проверке фильм не добавлен в избранное")
             favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
+    
     private func setupGradient() {
         // настройка градиента
         gradient = CAGradientLayer()
@@ -111,30 +122,42 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         ratingView.rating = 3.8
         ratingView.text = "\(3.8)"
     }
-    //MARK: @IBActionЧ
+    //MARK: @IBAction
     ///Нажатие кнопки закладок
     @IBAction func addToFavoriteButtonPressed(_ sender: UIButton) {
-        if addedToFavorite == false {
-            UIView.animate(withDuration: 0.3) { [self] in
+        
+        if (mediaObject is Movie) {
+            let movieObject = mediaObject as! Movie
+            if addedToFavorite == false {
+                UIView.animate(withDuration: 0.3) { [self] in
+                    print("Adding a \(NameLabel.text!) movie to Favorites")
+                    favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                    addedToFavorite = true
+                    UserDefaults.resetStandardUserDefaults()
+                    defaults.value(forKey: "\(movieObject.title ?? "Wonder woman")")
+                    defaults.set(addedToFavorite, forKey: "\(movieObject.title ?? "Wonder woman")")
+                }
+            } else if (mediaObject is Serial) {
+                let serialObject = mediaObject as! Serial
                 print("Adding a \(NameLabel.text!) movie to Favorites")
                 favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 addedToFavorite = true
                 UserDefaults.resetStandardUserDefaults()
-                defaults.value(forKey: "\(NameLabel.text!)")
-                defaults.set(addedToFavorite, forKey: "\(NameLabel.text!)")
-            }
-            
-        } else {
-            UIView.animate(withDuration: 0.3) { [self] in
-                print("remove \(NameLabel.text!) movie from Favorites")
-                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-                defaults.removeObject(forKey: "\(NameLabel.text!)")
-                UserDefaults.standard.removeObject(forKey: "\(NameLabel.text!)")
-                UserDefaults.resetStandardUserDefaults()
-                addedToFavorite = false
+                defaults.value(forKey: "\(serialObject.name ?? "Wonder woman")")
+                defaults.set(addedToFavorite, forKey: "\(serialObject.name ?? "Wonder woman")")
+            } else {
+                UIView.animate(withDuration: 0.3) { [self] in
+                    print("remove \(movieObject.title ?? "Wonder woman") movie from Favorites")
+                    favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                    defaults.removeObject(forKey: "\(movieObject.title ?? "Wonder woman")")
+                    UserDefaults.standard.removeObject(forKey: "\(movieObject.title ?? "Wonder woman")")
+                    UserDefaults.resetStandardUserDefaults()
+                    addedToFavorite = false
+                }
             }
         }
     }
+    
     ///Нажатие кнопки просмотра фильма (Работает по прямой ссылке)
     @IBAction func watchButtonPressed(_ sender: UIButton) {
         
@@ -176,9 +199,9 @@ extension DetailsViewController : UICollectionViewDelegate, UICollectionViewData
         cell.backgroundColor = UIColor.clear
         
         return cell
-    
+        
     }
-
+    
 }
 
 extension DetailsViewController: UIScrollViewDelegate {
