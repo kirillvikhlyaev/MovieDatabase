@@ -45,8 +45,8 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         setupGradient()
         checkFavorite()
         print("DetailViewController: я получил - \(mediaObject)")
-        registerTableView()
-        setupRatingStars()
+        registerCollectionView()
+        //        setupRatingStars()
         
         if (mediaObject is Movie) {
             let movieObject = mediaObject as! Movie
@@ -55,7 +55,8 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             
             NameLabel.text = movieObject.title
             subnameLabel.text = movieObject.release_date
-            
+            ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
+            ratingView.text = ""
             descriptionText.text = movieObject.overview
         } else if (mediaObject is Serial) {
             let serialObject = mediaObject as! Serial
@@ -64,20 +65,14 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             
             NameLabel.text = serialObject.name
             subnameLabel.text = serialObject.firstAirDate
-            
+            ratingView.rating = Double(Int(serialObject.voteAverage / 2))
+            print("")
+            ratingView.text = ""
+//            String(format: "%.0f", serialObject.voteAverage / 2 )
             descriptionText.text = serialObject.overview
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
         }
-        
-        //serialManager.getCast()
-    // if let url = URL(string: "\(movies[12])") {
-      //            movieImage.kf.setImage(with: url)
-      //            }
-      //        else {
-      //            let url2 = URL(string: "https://image.tmdb.org/t/p/original/\(serials[7])")
-      //                movieImage.kf.setImage(with: url2)
-      //            }
     }
     
     //MARK: viewDidLayoutSubviews
@@ -85,9 +80,6 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLayoutSubviews()
         gradient.frame = movieImage.bounds
     }
-//      
-    
-    
     //MARK: Methods
     ///Проверка наличия имени фильма в UserDefaults.
     private func checkFavorite() {
@@ -109,15 +101,15 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         movieImage.layer.mask = gradient
     }
     ///Подписка на делегаты и регистрация Niba
-    private func registerTableView() {
+    private func registerCollectionView() {
         castCollectionView.register(CastCollectionViewCell.nib(), forCellWithReuseIdentifier: CastCollectionViewCell.identifier)
         castCollectionView.backgroundColor = .none
         castCollectionView.dataSource = self
     }
     ///Количество звёздочек рейтинга для фильма
     private func setupRatingStars() {
-        ratingView.rating = 4.3
-        ratingView.text = "\(4.3)"
+        ratingView.rating = 3.8
+        ratingView.text = "\(3.8)"
     }
     //MARK: @IBActionЧ
     ///Нажатие кнопки закладок
