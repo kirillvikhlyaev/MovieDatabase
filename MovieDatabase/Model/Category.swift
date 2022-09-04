@@ -7,9 +7,4 @@
 
 import Foundation
 
-struct Category {
-    let name: String
-    let movies: [Collectable]
-}
-
 protocol Collectable {}
