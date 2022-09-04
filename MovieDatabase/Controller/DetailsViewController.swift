@@ -33,6 +33,10 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: let/var
     ///Bool добавления в израбнное.
     var addedToFavorite = false
+
+    //var movies = [Movie]()
+    var serials = [Serial]()
+    
     let defaults = UserDefaults.standard
     //    var movies = [Movie]()
     let movieManager = MovieDownloadManager()
@@ -58,15 +62,21 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         setupRatingStars()
         
         //serialManager.getCast()
-        
-        //        let url = URL(string: "https://image.tmdb.org/t/p/original/hOrV2fCw2kmSiS4ZMGFPfXqr3lt.jpg")
-        //        movieImage.kf.setImage(with: url)
+    // if let url = URL(string: "\(movies[12])") {
+      //            movieImage.kf.setImage(with: url)
+      //            }
+      //        else {
+      //            let url2 = URL(string: "https://image.tmdb.org/t/p/original/\(serials[7])")
+      //                movieImage.kf.setImage(with: url2)
+      //            }
     }
+    
     //MARK: viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gradient.frame = movieImage.bounds
     }
+//      
     
     
     //MARK: Methods

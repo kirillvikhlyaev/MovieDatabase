@@ -20,7 +20,7 @@ struct SerialResponse: Codable {
 }
 
 
-struct Serial: Codable {
+struct Serial: Codable, Collectable {
     let backdropPath, firstAirDate: String
     let genreIDS: [Int]
     let id: Int
@@ -28,7 +28,7 @@ struct Serial: Codable {
     let originCountry: [String]
     let originalLanguage, originalName, overview: String
     let popularity: Double
-    let posterPath: String
+    var posterPath: String
     let voteAverage: Double
     let voteCount: Int
 
