@@ -1,8 +1,6 @@
 # MovieDatabase
 # CHALLANGE #2 SWIFT MARAPHON 4.0
 
-![Image alt](https://github.com/kirillvikhlyaev/MovieDatabase/blob/dev/MovieDatabase/Supporting%20Files/Assets.xcassets/launchScreen.imageset/launchScreen.jpeg)
-
 - [Техзадание](https://solid-llama-3ab.notion.site/CHALLENGE-2-5c32ba0e7200439e9330ca982f0d4af6)
 - [Дизайн](https://dribbble.com/shots/14791304-Movies-app-design/attachments/6497678?mode=media)
 - [Network Module](https://medium.com/trendyol-tech/get-instantly-a-network-module-using-moya-in-swift-5f918ecdfb58)
