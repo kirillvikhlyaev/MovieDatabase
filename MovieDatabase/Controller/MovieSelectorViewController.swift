@@ -24,19 +24,10 @@ class MovieSelectorViewController: UIViewController {
     
     var serials = [Serial]()
     
-    var watchedMovies = [Movie]()
+    var watchedMovies = [Collectable]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        movies = [
-                    Movie(id: 3, title: "Harry Potter", original_language: "", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
-                ]
-        
-        serials = [
-            Serial(backdropPath: "", firstAirDate: "", genreIDS: [], id: 0, name: "", originCountry: [], originalLanguage: "", originalName: "", overview: "", popularity: 0, posterPath: "", voteAverage: 0, voteCount: 0)
-        ]
         
         movieCollectionView.backgroundColor = .none
         movieCollectionView.delegate = self
@@ -89,7 +80,29 @@ extension MovieSelectorViewController: SerialFetcher {
 
 extension MovieSelectorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("ID фильма: \(movies[indexPath.row].id)")
+        let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        
+        if collectionView == movieCollectionView {
+            let movie = movies[indexPath.row]
+            detailView.mediaObject = movie
+            
+            // Добавление фильма к недавно просмотренным
+            watchedMovies.append(movie)
+            DispatchQueue.main.async {
+                self.watchedRecentlyCollectionView.reloadData()
+            }
+        } else if collectionView == serialCollectionView {
+            let serial = serials[indexPath.row]
+            detailView.mediaObject = serial
+            
+            // Добавление сериала к недавно просмотренным
+            watchedMovies.append(serial)
+            DispatchQueue.main.async {
+                self.watchedRecentlyCollectionView.reloadData()
+            }
+        }
+        
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
 }
 
@@ -125,10 +138,23 @@ extension MovieSelectorViewController: UICollectionViewDataSource {
             return cell
         } else if collectionView == watchedRecentlyCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WatchedRecentlyCell", for: indexPath) as! WatchedRecentlyCell
-            cell.watchedRecentlyTitle.text = movies[indexPath.row].title ?? "Harry Potter"
-            cell.premiereDate.text = movies[indexPath.row].release_date ?? "2000"
-            let url = URL(string: "https://image.tmdb.org/t/p/original/\(movies[indexPath.row].posterPath)")
-            cell.poster.kf.setImage(with: url)
+            
+            if (watchedMovies[indexPath.row] is Movie) {
+                let movieObject = watchedMovies[indexPath.row] as! Movie
+                cell.watchedRecentlyTitle.text = movieObject.title ?? "Harry Potter"
+                cell.premiereDate.text = movieObject.release_date ?? "2000"
+                
+                let url = URL(string: "https://image.tmdb.org/t/p/original/\(movieObject.posterPath)")
+                cell.poster.kf.setImage(with: url)
+                
+            } else if (watchedMovies[indexPath.row] is Serial) {
+                let serialObject = watchedMovies[indexPath.row] as! Serial
+                cell.watchedRecentlyTitle.text = serialObject.name
+                cell.premiereDate.text = serialObject.firstAirDate
+                
+                let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
+                cell.poster.kf.setImage(with: url)
+            }
             return cell
         } else {
             return UICollectionViewCell()

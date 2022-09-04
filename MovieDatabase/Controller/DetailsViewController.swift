@@ -28,37 +28,52 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //table-collection view
     @IBOutlet weak var tableView: UITableView!
     
-    var movieId: Int = 0
+    var mediaObject: Collectable? = nil
     
     //MARK: let/var
     ///Bool добавления в израбнное.
     var addedToFavorite = false
-
-    //var movies = [Movie]()
-    var serials = [Serial]()
     
     let defaults = UserDefaults.standard
-    let movieManager = MovieDownloadManager()
-    let serialManager = SerialDownloadManager()
     
+    var cast = [Cast]()
     
-    ///Фильмы заглушки
-    var movies = [
-        Movie(id: 0, title: "SpiderMan", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
-        Movie(id: 1, title: "La Casa De Papel", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
-        Movie(id: 2, title: "1+1", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: ""),
-        Movie(id: 3, title: "Harry Potter", original_language: "SpiderMan", overview: "", poster_path: "", backdrop_path: "", popularity: 0, vote_average: 0, vote_count: 0, video: false, adult: false, release_date: "")
-    ]
     
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("DetailViewController: я получил - \(mediaObject)")
         //checkFavorite()
         registerTableView()
+        
+        if (mediaObject is Movie) {
+            let movieObject = mediaObject as! Movie
+            let url = URL(string: "https://image.tmdb.org/t/p/original/\(movieObject.posterPath)")
+            movieImage.kf.setImage(with: url)
+            
+            NameLabel.text = movieObject.title
+            subnameLabel.text = movieObject.release_date
+            
+            descriptionLabel.text = movieObject.overview
+        } else if (mediaObject is Serial) {
+            let serialObject = mediaObject as! Serial
+            let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
+            movieImage.kf.setImage(with: url)
+            
+            NameLabel.text = serialObject.name
+            subnameLabel.text = serialObject.firstAirDate
+            
+            descriptionLabel.text = serialObject.overview
+        } else {
+            movieImage.image = UIImage(named: "simpleWoman")
+        }
+        
         //setupRatingStars()
         
         //serialManager.getCast()
+        
+        
+        
         
 //        if let url = URL(string: "\(movies[12])") {
 //            movieImage.kf.setImage(with: url)
@@ -156,7 +171,7 @@ extension DetailsViewController : UITableViewDelegate, UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of CastTableViewCell.")
         }
         cell.backgroundColor = UIColor.clear
-        cell.configure(with: movies)
+        cell.configure(with: cast)
         return cell
     }
     
