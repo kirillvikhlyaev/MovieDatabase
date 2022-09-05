@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B92A9A9555B8CEFBCA59FEE /* Pods_MovieDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */; };
+		4365F19528C65847002F7162 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 4365F19428C65847002F7162 /* SkeletonView */; };
 		4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375EE8928BEC590003123A4 /* DetailsViewController.swift */; };
 		43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */; };
 		43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */; };
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4365F19528C65847002F7162 /* SkeletonView in Frameworks */,
 				974ECB0A28C11BC8004BE4D4 /* Kingfisher in Frameworks */,
 				974ECAFF28C0A4DD004BE4D4 /* Alamofire in Frameworks */,
 				2B92A9A9555B8CEFBCA59FEE /* Pods_MovieDatabase.framework in Frameworks */,
@@ -270,6 +272,7 @@
 			packageProductDependencies = (
 				974ECAFE28C0A4DD004BE4D4 /* Alamofire */,
 				974ECB0928C11BC8004BE4D4 /* Kingfisher */,
+				4365F19428C65847002F7162 /* SkeletonView */,
 			);
 			productName = MovieDatabase;
 			productReference = ED4B61A828BCA12300CFF12F /* MovieDatabase.app */;
@@ -302,6 +305,7 @@
 			packageReferences = (
 				974ECAFD28C0A4DD004BE4D4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				974ECB0828C11BC8004BE4D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4365F19328C65847002F7162 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = ED4B61A928BCA12300CFF12F /* Products */;
 			projectDirPath = "";
@@ -606,6 +610,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4365F19328C65847002F7162 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		974ECAFD28C0A4DD004BE4D4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -625,6 +637,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4365F19428C65847002F7162 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4365F19328C65847002F7162 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		974ECAFE28C0A4DD004BE4D4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 974ECAFD28C0A4DD004BE4D4 /* XCRemoteSwiftPackageReference "Alamofire" */;
