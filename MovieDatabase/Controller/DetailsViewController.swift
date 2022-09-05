@@ -41,6 +41,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
         setupGradient()
         checkFavorite()
@@ -62,6 +63,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             let movieManager = MovieDownloadManager()
             movieManager.castDelegate = self
             movieManager.getCast(for: movieObject.id ?? 0)
+            movieManager.getLink(for: movieObject.id ?? 0)
             
         } else if (mediaObject is Serial) {
             let serialObject = mediaObject as! Serial
@@ -78,6 +80,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             let serialManager = SerialDownloadManager()
             serialManager.castDelegate = self
             serialManager.getCast(for: serialObject.id)
+            serialManager.getLink(for: serialObject.id)
             
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
