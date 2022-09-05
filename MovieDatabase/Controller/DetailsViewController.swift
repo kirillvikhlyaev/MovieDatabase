@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 import Kingfisher
-
+import SkeletonView
 final class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     //MARK: IB Outlets
