@@ -69,9 +69,9 @@ extension MovieSelectorViewController: SerialFetcher {
         print(error)
     }
     
-    func didUpdateSeries(_ serialManager: SerialDownloadManager, movies: [Serial]) {
+    func didUpdateSeries(_ serialManager: SerialDownloadManager, serials: [Serial]) {
         DispatchQueue.main.async {
-            self.serials = movies
+            self.serials = serials
             self.serialCollectionView.reloadData()
             print("Количество загруженных сериалов - \(self.serials.count)")
         }
