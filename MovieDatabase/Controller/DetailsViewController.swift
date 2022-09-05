@@ -41,6 +41,7 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         print("DetailViewController: я получил - \(mediaObject!)")

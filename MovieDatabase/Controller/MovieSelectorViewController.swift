@@ -29,6 +29,7 @@ class MovieSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //managerMovie.getLink
         movieCollectionView.backgroundColor = .none
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self

@@ -14,6 +14,8 @@
 		43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */; };
 		43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */; };
 		43E3C88928C243F600764D49 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3C88828C243F600764D49 /* Extension + UIImage.swift */; };
+		9718C48B28C631A000C88F8C /* MovieOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9718C48A28C631A000C88F8C /* MovieOne.swift */; };
+		9718C48D28C638B800C88F8C /* SerialOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9718C48C28C638B800C88F8C /* SerialOne.swift */; };
 		974ECAFF28C0A4DD004BE4D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 974ECAFE28C0A4DD004BE4D4 /* Alamofire */; };
 		974ECB0128C0A889004BE4D4 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974ECB0028C0A889004BE4D4 /* MovieDetails.swift */; };
 		974ECB0A28C11BC8004BE4D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 974ECB0928C11BC8004BE4D4 /* Kingfisher */; };
@@ -48,6 +50,8 @@
 		43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsDisturb.swift; sourceTree = "<group>"; };
 		43E3C88828C243F600764D49 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
+		9718C48A28C631A000C88F8C /* MovieOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOne.swift; sourceTree = "<group>"; };
+		9718C48C28C638B800C88F8C /* SerialOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialOne.swift; sourceTree = "<group>"; };
 		974ECB0028C0A889004BE4D4 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		A78F0FA796F43DE4B0ABCB65 /* Pods_MovieDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C574988876B4F831F7BC27F8 /* Pods-MovieDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDatabase.debug.xcconfig"; path = "Target Support Files/Pods-MovieDatabase/Pods-MovieDatabase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			children = (
 				ED0438AB28BFE4AF00CB5A89 /* Category.swift */,
 				ED0438AD28BFE4BA00CB5A89 /* Movie.swift */,
+				9718C48A28C631A000C88F8C /* MovieOne.swift */,
+				9718C48C28C638B800C88F8C /* SerialOne.swift */,
 				ED9CEEF928C094C600313607 /* Cast.swift */,
 				ED9CEEFB28C094D600313607 /* Serial.swift */,
 				43E3C88828C243F600764D49 /* Extension + UIImage.swift */,
@@ -369,11 +375,13 @@
 				EDEAD55528BF5D2000398023 /* MovieSelectorViewController.swift in Sources */,
 				ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */,
 				ED9CEEF228C0946300313607 /* MovieURL.swift in Sources */,
+				9718C48D28C638B800C88F8C /* SerialOne.swift in Sources */,
 				ED9CEEFC28C094D600313607 /* Serial.swift in Sources */,
 				EDED88CD28C53EB9002FC5C4 /* FetchHandler.swift in Sources */,
 				4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */,
 				ED0438AC28BFE4AF00CB5A89 /* Category.swift in Sources */,
 				ED52548628C489C30045A69A /* MovieCell.swift in Sources */,
+				9718C48B28C631A000C88F8C /* MovieOne.swift in Sources */,
 				ED9CEEF428C0946C00313607 /* NetworkService.swift in Sources */,
 				ED9CEEF028C0945200313607 /* MovieDownloadManager.swift in Sources */,
 				43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */,
