@@ -270,13 +270,6 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                         <real key="value" value="27"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="4.3"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
-                                                        <real key="value" value="22"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="textMargin">
-                                                        <real key="value" value="-189"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                                         <color key="value" systemColor="systemYellowColor"/>
                                                     </userDefinedRuntimeAttribute>
@@ -397,12 +390,13 @@
                     <navigationItem key="navigationItem" id="7Ao-0F-CtQ">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uaK-Ii-MMe">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wGo-6F-Kjm" userLabel="favoriteBookMarkButton">
-                                <rect key="frame" x="347.5" y="5" width="46.5" height="34"/>
+                                <rect key="frame" x="331.5" y="0.0" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addToFavoriteButtonPressed:" destination="mm3-4j-nXc" eventType="touchUpInside" id="OVH-BM-Wai"/>

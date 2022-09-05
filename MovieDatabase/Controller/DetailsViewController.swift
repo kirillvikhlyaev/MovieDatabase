@@ -8,9 +8,10 @@
 import UIKit
 import WebKit
 import Kingfisher
-class DetailsViewController: UIViewController, WKNavigationDelegate {
+
+final class DetailsViewController: UIViewController, WKNavigationDelegate {
     
-    //MARK: IBOutlets
+    //MARK: IB Outlets
     //buttons
     @IBOutlet weak var favoriteBookMarkButton: UIButton!
     @IBOutlet weak var watchButton: UIButton!
@@ -27,84 +28,83 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
     //Collection view
     @IBOutlet weak var castCollectionView: UICollectionView!
     
+    
+    
+    //MARK: - Private Properties
+    private  var addedToFavorite = false
+    private let defaults = UserDefaults.standard
+    private var cast = [Cast]()
+    
     var mediaObject: Collectable? = nil
     
-    //MARK: let/var
-    ///Bool добавления в израбнное.
-    var addedToFavorite = false
-    
-    let defaults = UserDefaults.standard
-    
-    var cast = [Cast]()
-    private var gradient: CAGradientLayer!
-    
-    //MARK: viewDidLoad
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        setupGradient()
-        checkFavorite()
-        print("DetailViewController: я получил - \(mediaObject)")
-        registerCollectionView()
-        //        setupRatingStars()
         
+        print("DetailViewController: я получил - \(mediaObject!)")
+        
+        ///Проверяем Апи
         if (mediaObject is Movie) {
-            let movieObject = mediaObject as! Movie
-            let url = URL(string: "https://image.tmdb.org/t/p/original/\(movieObject.posterPath)")
-            movieImage.kf.setImage(with: url)
-            
-            NameLabel.text = movieObject.title
-            subnameLabel.text = movieObject.release_date
-            ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
-            ratingView.text = ""
-            descriptionText.text = movieObject.overview
+            updateUIMovie()
         } else if (mediaObject is Serial) {
-            let serialObject = mediaObject as! Serial
-            let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
-            movieImage.kf.setImage(with: url)
-            
-            NameLabel.text = serialObject.name
-            subnameLabel.text = serialObject.firstAirDate
-            ratingView.rating = Double(Int(serialObject.voteAverage / 2))
-            print("")
-            ratingView.text = ""
-            //            String(format: "%.0f", serialObject.voteAverage / 2 )
-            descriptionText.text = serialObject.overview
+            updateUISerial()
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
         }
+        
+        setupGradient()
+        checkFavorite()
+        registerCollectionView()
+        
     }
     
-    //MARK: viewDidLayoutSubviews
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        gradient.frame = movieImage.bounds
+    // MARK: - Private Methods
+    private func updateUIMovie() {
+        let movieObject = mediaObject as! Movie
+        let url = URL(string: "https://image.tmdb.org/t/p/original/\(movieObject.posterPath)")
+        movieImage.kf.setImage(with: url)
+        NameLabel.text = movieObject.title
+        subnameLabel.text = movieObject.release_date
+        ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
+        descriptionText.text = movieObject.overview
     }
-    //MARK: Methods
-    ///Проверка наличия имени фильма в UserDefaults.
+    private func updateUISerial() {
+        let serialObject = mediaObject as! Serial
+        let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
+        movieImage.kf.setImage(with: url)
+        
+        NameLabel.text = serialObject.name
+        subnameLabel.text = serialObject.firstAirDate
+        ratingView.rating = Double(Int(serialObject.voteAverage / 2))
+        print("")
+        descriptionText.text = serialObject.overview
+    }
+    ///Проверка наличия имени фильма в избранном.
     private func checkFavorite() {
         if (mediaObject is Movie) {
             let movieObject = mediaObject as! Movie
-            if (defaults.value(forKey: "\(movieObject.title ?? "wonderWoman")") != nil) {
+            if (defaults.value(forKey: "\(movieObject.title ?? "NIL")") != nil) {
                 favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 addedToFavorite = true
-                print("При проверке фильм добавлен в избранное")
+                print("При проверке фильм добавлен в избранные фильмы")
             }
         } else  if (mediaObject is Serial) {
             let serialObject = mediaObject as! Serial
-            if (defaults.value(forKey: "\(serialObject.name ?? "wonderWoman")") != nil) {
+            if (defaults.value(forKey: "\(serialObject.name )") != nil) {
                 favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 addedToFavorite = true
-                print("При проверке фильм добавлен в избранное")
+                print("При проверке фильм добавлен в избранные сериалы")
             }
         } else {
             print("При проверке фильм не добавлен в избранное")
             favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
-    
+    // настройка градиента
     private func setupGradient() {
-        // настройка градиента
+        var gradient: CAGradientLayer!
         gradient = CAGradientLayer()
         gradient.frame = movieImage.bounds
         gradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
@@ -117,50 +117,61 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         castCollectionView.backgroundColor = .none
         castCollectionView.dataSource = self
     }
-    ///Количество звёздочек рейтинга для фильма
-    private func setupRatingStars() {
-        ratingView.rating = 3.8
-        ratingView.text = "\(3.8)"
-    }
+    
     //MARK: @IBAction
     ///Нажатие кнопки закладок
     @IBAction func addToFavoriteButtonPressed(_ sender: UIButton) {
         
-        if (mediaObject is Movie) {
+        if (mediaObject is Movie) && addedToFavorite == false {
             let movieObject = mediaObject as! Movie
-            if addedToFavorite == false {
-                UIView.animate(withDuration: 0.3) { [self] in
-                    print("Adding a \(NameLabel.text!) movie to Favorites")
-                    favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                    addedToFavorite = true
-                    UserDefaults.resetStandardUserDefaults()
-                    defaults.value(forKey: "\(movieObject.title ?? "Wonder woman")")
-                    defaults.set(addedToFavorite, forKey: "\(movieObject.title ?? "Wonder woman")")
-                }
+            
+            defaults.value(forKey: "\(movieObject.title ?? "Film")")
+            defaults.set(addedToFavorite, forKey: "\(movieObject.title ?? "Film")")
+            print("Adding a \(movieObject.title) movie to Favorites")
+            
+            addedToFavorite = true
+            UserDefaults.resetStandardUserDefaults()
+            
+            UIView.animate(withDuration: 0.3) { [self] in
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            }
+            
+        } else if (mediaObject is Serial) && addedToFavorite == false {
+            let serialObject = mediaObject as! Serial
+            
+            defaults.value(forKey: "\(serialObject.name)")
+            defaults.set(addedToFavorite, forKey: "\(serialObject.name)")
+            print("Adding a \(serialObject.name) Serial to Favorites")
+            
+            addedToFavorite = true
+            UserDefaults.resetStandardUserDefaults()
+            
+            UIView.animate(withDuration: 0.3) { [self] in
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            }
+            
+            
+        } else if addedToFavorite == true {
+            if (mediaObject is Movie) {
+                let movieObject = mediaObject as! Movie
+                defaults.removeObject(forKey: "\(movieObject.title ?? "Film")")
+                print("remove \(movieObject.title ?? "Film") Movie from Favorites")
+                
             } else if (mediaObject is Serial) {
                 let serialObject = mediaObject as! Serial
-                print("Adding a \(NameLabel.text!) movie to Favorites")
-                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                addedToFavorite = true
-                UserDefaults.resetStandardUserDefaults()
-                defaults.value(forKey: "\(serialObject.name ?? "Wonder woman")")
-                defaults.set(addedToFavorite, forKey: "\(serialObject.name ?? "Wonder woman")")
-            } else {
-                UIView.animate(withDuration: 0.3) { [self] in
-                    print("remove \(movieObject.title ?? "Wonder woman") movie from Favorites")
-                    favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-                    defaults.removeObject(forKey: "\(movieObject.title ?? "Wonder woman")")
-                    UserDefaults.standard.removeObject(forKey: "\(movieObject.title ?? "Wonder woman")")
-                    UserDefaults.resetStandardUserDefaults()
-                    addedToFavorite = false
-                }
+                defaults.removeObject(forKey: "\(serialObject.name )")
             }
+            UIView.animate(withDuration: 0.3) { [self] in
+                favoriteBookMarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+            UserDefaults.resetStandardUserDefaults()
+            addedToFavorite = false
         }
     }
     
+    
     ///Нажатие кнопки просмотра фильма (Работает по прямой ссылке)
     @IBAction func watchButtonPressed(_ sender: UIButton) {
-        
         //Сайт заглушка
         let webView : WKWebView = {
             let preferences = WKWebpagePreferences()
@@ -170,7 +181,7 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
             return webView
         }()
         view.addSubview(webView)
-        //        webView.customUserAgent = "iPad/Chrome/SomethingRandom"
+        
         DispatchQueue.main.asyncAfter(deadline: .now()+5) {
             webView.evaluateJavaScript("document.body.innerHTML") { result, error in
                 guard let html = result as? String, error == nil else {
