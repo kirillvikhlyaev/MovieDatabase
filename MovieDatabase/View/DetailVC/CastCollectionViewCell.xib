@@ -21,7 +21,7 @@
                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-pm-FWx">
                         <rect key="frame" x="0.0" y="0.0" width="104" height="135"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simpleWoman" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-4B-wOO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill.questionmark.ar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-4B-wOO">
                                 <rect key="frame" x="26" y="2" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -61,7 +61,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="simpleWoman" width="3840" height="2160"/>
+        <image name="person.fill.questionmark.ar" catalog="system" width="128" height="102"/>
         <namedColor name="backgroundColor">
             <color red="0.090196078431372548" green="0.090196078431372548" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

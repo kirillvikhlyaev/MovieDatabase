@@ -27,9 +27,23 @@ class CastCollectionViewCell: UICollectionViewCell {
     }
     ///Конфигурация CastCollectionViewCell
     public func configure(with cast: Cast) {
+        let backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.13, alpha: 0.6)
+        let titleColor = UIColor(red: 0.09, green: 0.09, blue: 0.13, alpha: 1)
+        castImageView.isSkeletonable = true
+        castTitle.isSkeletonable = true
+        castRole.isSkeletonable = true
+        castImageView.showGradientSkeleton(usingGradient: .init(baseColor: backgroundColor), transition: .crossDissolve(3))
+        castTitle.showGradientSkeleton(usingGradient: .init(baseColor: titleColor), transition: .crossDissolve(3))
+        castRole.showGradientSkeleton(usingGradient: .init(baseColor: titleColor), transition: .crossDissolve(3))
         self.castTitle.text = cast.originalName
         self.castRole.text = cast.character ?? "Актер"
         let url = URL(string: cast.profilePhoto ?? "https://www.viewsontop.com/wp-content/uploads/2020/01/placeholder.png")
         self.castImageView.kf.setImage(with: url)
+        castImageView.stopSkeletonAnimation()
+        castTitle.stopSkeletonAnimation()
+        castRole.stopSkeletonAnimation()
+        castImageView.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(3))
+        castTitle.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(4))
+        castRole.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(4))
     }
 }

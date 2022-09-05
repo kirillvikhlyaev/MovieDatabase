@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sbS-eW-D9S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sbS-eW-D9S">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -55,6 +55,9 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </view>
                                                                 <size key="customSize" width="125" height="228"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -389,8 +392,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Ao-0F-CtQ">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uaK-Ii-MMe">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wGo-6F-Kjm" userLabel="favoriteBookMarkButton">
-                                <rect key="frame" x="331.5" y="0.0" width="60" height="60"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wGo-6F-Kjm" userLabel="favoriteBookMarkButton">
+                                <rect key="frame" x="334" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -421,6 +424,11 @@
             <point key="canvasLocation" x="2023" y="195"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="BDq-JH-WR8">
+            <size key="intrinsicContentSize" width="155" height="27"/>
+        </designable>
+    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>

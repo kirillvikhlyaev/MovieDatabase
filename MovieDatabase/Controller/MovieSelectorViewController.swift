@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class MovieSelectorViewController: UIViewController {
 
@@ -28,7 +29,7 @@ class MovieSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         //managerMovie.getLink
         movieCollectionView.backgroundColor = .none
         movieCollectionView.delegate = self
@@ -48,9 +49,21 @@ class MovieSelectorViewController: UIViewController {
         managerMovie.delegate = self
         managerMovie.getPopular()
         
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
+//            movieCollectionView.stopSkeletonAnimation()
+//            movieCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+//            movieCollectionView.reloadData()
+//        }
+        
         managerSerial.delegate = self
         managerSerial.getPopular()
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        movieCollectionView.isSkeletonable = true
+//        movieCollectionView.showGradientSkeleton(usingGradient: .init(baseColor: .skeletonDefault), transition: .crossDissolve(0.25))
+//}
 }
 
 // MARK: - Fetch Films Methods
@@ -110,7 +123,12 @@ extension MovieSelectorViewController: UICollectionViewDelegate {
     }
 }
 
-extension MovieSelectorViewController: UICollectionViewDataSource {
+extension MovieSelectorViewController: UICollectionViewDataSource, SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            return "MovieCell"
+    }
+
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == movieCollectionView {
             return movies.count
