@@ -48,8 +48,10 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         ///Проверяем Апи
         if (mediaObject is Movie) {
             updateUIMovie()
+            
         } else if (mediaObject is Serial) {
             updateUISerial()
+            
         } else {
             movieImage.image = UIImage(named: "simpleWoman")
         }
@@ -57,41 +59,6 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         setupGradient()
         checkFavorite()
         registerCollectionView()
-        
-        if (mediaObject is Movie) {
-            let movieObject = mediaObject as! Movie
-            let url = URL(string: "https://image.tmdb.org/t/p/original/\(movieObject.posterPath)")
-            movieImage.kf.setImage(with: url)
-            
-            NameLabel.text = movieObject.title
-            subnameLabel.text = movieObject.release_date
-            ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
-            ratingView.text = ""
-            descriptionText.text = movieObject.overview
-            
-            let movieManager = MovieDownloadManager()
-            movieManager.castDelegate = self
-            movieManager.getCast(for: movieObject.id ?? 0)
-            
-        } else if (mediaObject is Serial) {
-            let serialObject = mediaObject as! Serial
-            let url = URL(string: "https://image.tmdb.org/t/p/original/\(serialObject.posterPath)")
-            movieImage.kf.setImage(with: url)
-            
-            NameLabel.text = serialObject.name
-            subnameLabel.text = serialObject.firstAirDate
-            ratingView.rating = Double(Int(serialObject.voteAverage / 2))
-            ratingView.text = ""
-            //            String(format: "%.0f", serialObject.voteAverage / 2 )
-            descriptionText.text = serialObject.overview
-            
-            let serialManager = SerialDownloadManager()
-            serialManager.castDelegate = self
-            serialManager.getCast(for: serialObject.id)
-            
-        } else {
-            movieImage.image = UIImage(named: "simpleWoman")
-        }
     }
     
     // MARK: - Private Methods
@@ -103,6 +70,9 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         subnameLabel.text = movieObject.release_date
         ratingView.rating = ((movieObject.vote_average ?? 3.0) / 2)
         descriptionText.text = movieObject.overview
+        let movieManager = MovieDownloadManager()
+        movieManager.castDelegate = self
+        movieManager.getCast(for: movieObject.id ?? 0)
     }
     private func updateUISerial() {
         let serialObject = mediaObject as! Serial
@@ -114,6 +84,9 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         ratingView.rating = Double(Int(serialObject.voteAverage / 2))
         print("")
         descriptionText.text = serialObject.overview
+        let serialManager = SerialDownloadManager()
+        serialManager.castDelegate = self
+        serialManager.getCast(for: serialObject.id)
     }
     ///Проверка наличия имени фильма в избранном.
     private func checkFavorite() {
@@ -231,7 +204,7 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         webView.load (request)
     }
 }
-//MARK: UITableViewDelegate, UITableViewDataSource
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension DetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cast.count
@@ -250,12 +223,7 @@ extension DetailsViewController : UICollectionViewDelegate, UICollectionViewData
     
 }
 
-extension DetailsViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        movieImage.alpha = scrollView.contentOffset.y / -91.0
-    }
-}
-
+//MARK: - SerialCastFetcher
 extension DetailsViewController: SerialCastFetcher {
     func didUpdateCast(_ serialManager: SerialDownloadManager, cast: [Cast]) {
         print("Количество актеров: \(cast.count)")
@@ -269,7 +237,7 @@ extension DetailsViewController: SerialCastFetcher {
         print("Выкачка каста не удалась: \(error)")
     }
 }
-
+//MARK: - MovieCastFetcher
 extension DetailsViewController: MovieCastFetcher {
     func didUpdateCast(_ movieManager: MovieDownloadManager, cast: [Cast]) {
         print("Количество актеров: \(cast.count)")
@@ -277,5 +245,11 @@ extension DetailsViewController: MovieCastFetcher {
         DispatchQueue.main.async {
             self.castCollectionView.reloadData()
         }
+    }
+}
+//MARK: - UIScrollViewDelegate
+extension DetailsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        movieImage.alpha = scrollView.contentOffset.y / -91.0
     }
 }
