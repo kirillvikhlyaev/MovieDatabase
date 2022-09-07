@@ -11,6 +11,10 @@
 		4365F19528C65847002F7162 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 4365F19428C65847002F7162 /* SkeletonView */; };
 		4375EE8A28BEC590003123A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375EE8928BEC590003123A4 /* DetailsViewController.swift */; };
 		43B410E628C7C220007AC9EE /* Extension + UIbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B410E528C7C220007AC9EE /* Extension + UIbutton.swift */; };
+		43B410E928C8B397007AC9EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B410E828C8B397007AC9EE /* SettingsViewController.swift */; };
+		43B410EB28C8B3ED007AC9EE /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B410EA28C8B3ED007AC9EE /* SettingsCollectionViewCell.swift */; };
+		43B410EE28C8B432007AC9EE /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B410ED28C8B432007AC9EE /* SwitchTableViewCell.swift */; };
+		43B410FA28C9214D007AC9EE /* WatchedRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B410F928C9214D007AC9EE /* WatchedRecentlyCell.swift */; };
 		43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */; };
 		43C0CC7928C0BE9000DC20D7 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */; };
 		43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */; };
@@ -29,7 +33,6 @@
 		ED4B61B828BCA12500CFF12F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4B61B628BCA12500CFF12F /* LaunchScreen.storyboard */; };
 		ED52548628C489C30045A69A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52548428C489C30045A69A /* MovieCell.swift */; };
 		ED52548728C489C30045A69A /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED52548528C489C30045A69A /* MovieCell.xib */; };
-		ED52549228C48A970045A69A /* WatchedRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52549028C48A970045A69A /* WatchedRecentlyCell.swift */; };
 		ED52549328C48A970045A69A /* WatchedRecentlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED52549128C48A970045A69A /* WatchedRecentlyCell.xib */; };
 		ED52549628C48B7C0045A69A /* SerialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52549428C48B7C0045A69A /* SerialCell.swift */; };
 		ED52549728C48B7C0045A69A /* SerialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED52549528C48B7C0045A69A /* SerialCell.xib */; };
@@ -48,6 +51,10 @@
 /* Begin PBXFileReference section */
 		4375EE8928BEC590003123A4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		43B410E528C7C220007AC9EE /* Extension + UIbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIbutton.swift"; sourceTree = "<group>"; };
+		43B410E828C8B397007AC9EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		43B410EA28C8B3ED007AC9EE /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		43B410ED28C8B432007AC9EE /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		43B410F928C9214D007AC9EE /* WatchedRecentlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedRecentlyCell.swift; sourceTree = "<group>"; };
 		43C0CC7628C0BD9500DC20D7 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		43C0CC7828C0BE9000DC20D7 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		43C0CC7C28C0BF1600DC20D7 /* StarsDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsDisturb.swift; sourceTree = "<group>"; };
@@ -69,7 +76,6 @@
 		ED4B61B928BCA12500CFF12F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED52548428C489C30045A69A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		ED52548528C489C30045A69A /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
-		ED52549028C48A970045A69A /* WatchedRecentlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedRecentlyCell.swift; sourceTree = "<group>"; };
 		ED52549128C48A970045A69A /* WatchedRecentlyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchedRecentlyCell.xib; sourceTree = "<group>"; };
 		ED52549428C48B7C0045A69A /* SerialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialCell.swift; sourceTree = "<group>"; };
 		ED52549528C48B7C0045A69A /* SerialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SerialCell.xib; sourceTree = "<group>"; };
@@ -116,6 +122,15 @@
 				43B410E528C7C220007AC9EE /* Extension + UIbutton.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		43B410EC28C8B3F4007AC9EE /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				43B410EA28C8B3ED007AC9EE /* SettingsCollectionViewCell.swift */,
+				43B410ED28C8B432007AC9EE /* SwitchTableViewCell.swift */,
+			);
+			name = SettingsCell;
 			sourceTree = "<group>";
 		};
 		43C0CC7328C0BCE600DC20D7 /* CastCollectionCell */ = {
@@ -200,6 +215,7 @@
 				ED52548228C489780045A69A /* PopularSerialCell */,
 				ED52548128C489630045A69A /* PopularMovieCell */,
 				43C0CC7328C0BCE600DC20D7 /* CastCollectionCell */,
+				43B410EC28C8B3F4007AC9EE /* SettingsCell */,
 				ED4B61B128BCA12300CFF12F /* Main.storyboard */,
 			);
 			path = View;
@@ -210,6 +226,7 @@
 			children = (
 				4375EE8928BEC590003123A4 /* DetailsViewController.swift */,
 				EDEAD55428BF5D2000398023 /* MovieSelectorViewController.swift */,
+				43B410E828C8B397007AC9EE /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,8 +260,8 @@
 		ED52548328C489920045A69A /* ContinueWatching */ = {
 			isa = PBXGroup;
 			children = (
-				ED52549028C48A970045A69A /* WatchedRecentlyCell.swift */,
 				ED52549128C48A970045A69A /* WatchedRecentlyCell.xib */,
+				43B410F928C9214D007AC9EE /* WatchedRecentlyCell.swift */,
 			);
 			name = ContinueWatching;
 			sourceTree = "<group>";
@@ -381,8 +398,8 @@
 				ED4B61AC28BCA12300CFF12F /* AppDelegate.swift in Sources */,
 				ED9CEEEE28C0944300313607 /* API.swift in Sources */,
 				ED9CEEF628C0947600313607 /* SerialDownloadManager.swift in Sources */,
-				ED52549228C48A970045A69A /* WatchedRecentlyCell.swift in Sources */,
 				ED9CEEF828C0947F00313607 /* SerialURL.swift in Sources */,
+				43B410EE28C8B432007AC9EE /* SwitchTableViewCell.swift in Sources */,
 				EDEAD55528BF5D2000398023 /* MovieSelectorViewController.swift in Sources */,
 				ED4B61AE28BCA12300CFF12F /* SceneDelegate.swift in Sources */,
 				ED9CEEF228C0946300313607 /* MovieURL.swift in Sources */,
@@ -397,6 +414,9 @@
 				ED9CEEF428C0946C00313607 /* NetworkService.swift in Sources */,
 				ED9CEEF028C0945200313607 /* MovieDownloadManager.swift in Sources */,
 				43C0CC7728C0BD9500DC20D7 /* CastCollectionViewCell.swift in Sources */,
+				43B410E928C8B397007AC9EE /* SettingsViewController.swift in Sources */,
+				43B410FA28C9214D007AC9EE /* WatchedRecentlyCell.swift in Sources */,
+				43B410EB28C8B3ED007AC9EE /* SettingsCollectionViewCell.swift in Sources */,
 				43C0CC7D28C0BF1600DC20D7 /* StarsDisturb.swift in Sources */,
 				974ECB0128C0A889004BE4D4 /* MovieDetails.swift in Sources */,
 			);

@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -181,6 +182,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Кинчик" id="kcL-2q-obZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8Uc-mk-6Ac">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="FE9-rE-7KA">
+                                <rect key="frame" x="20" y="5" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="primaryColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="4h1-ET-ZaX" kind="show" id="D66-0u-2gk"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="rqx-n4-YKk">
                             <color key="tintColor" name="primaryColor"/>
                         </barButtonItem>
@@ -195,6 +211,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nHs-CT-IoK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1105.7971014492755" y="194.86607142857142"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Edh-mY-BDw">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="4h1-ET-ZaX" customClass="SettingsViewController" customModule="MovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rox-e0-whh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIP-aI-Gav">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="G6o-5l-0ay">
+                                        <rect key="frame" x="163" y="105.5" width="88" height="71.5"/>
+                                        <color key="tintColor" name="primaryColor"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj6-XZ-ibQ" userLabel="nameStack">
+                                        <rect key="frame" x="140" y="182.5" width="144" height="27.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Иван " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTv-lv-Igx">
+                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Иванов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrt-gK-Kit">
+                                                <rect key="frame" x="62.5" y="0.0" width="81.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cjo-hH-GSp" userLabel="subscribeStack">
+                                        <rect key="frame" x="113" y="215" width="188" height="23"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписка :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlN-mC-T63">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Киноман" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-6U-93d">
+                                                <rect key="frame" x="105" y="0.0" width="83" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                <color key="textColor" name="primaryColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="G6o-5l-0ay" firstAttribute="leading" secondItem="GIP-aI-Gav" secondAttribute="leading" constant="163" id="6qY-Zm-2Rq"/>
+                                    <constraint firstAttribute="trailing" secondItem="G6o-5l-0ay" secondAttribute="trailing" constant="163" id="8wT-I2-eth"/>
+                                    <constraint firstItem="G6o-5l-0ay" firstAttribute="top" secondItem="GIP-aI-Gav" secondAttribute="top" constant="105" id="GAU-BF-Mp3"/>
+                                    <constraint firstAttribute="bottom" secondItem="cjo-hH-GSp" secondAttribute="bottom" id="KgH-OW-Z3j"/>
+                                    <constraint firstItem="cjo-hH-GSp" firstAttribute="top" secondItem="wj6-XZ-ibQ" secondAttribute="bottom" constant="5" id="XLt-c8-qsW"/>
+                                    <constraint firstItem="cjo-hH-GSp" firstAttribute="leading" secondItem="GIP-aI-Gav" secondAttribute="leading" constant="113" id="dI0-Dt-hHf"/>
+                                    <constraint firstAttribute="trailing" secondItem="cjo-hH-GSp" secondAttribute="trailing" constant="113" id="jfd-TK-ChO"/>
+                                    <constraint firstItem="wj6-XZ-ibQ" firstAttribute="leading" secondItem="GIP-aI-Gav" secondAttribute="leading" constant="140" id="p7o-nM-erY"/>
+                                    <constraint firstAttribute="trailing" secondItem="wj6-XZ-ibQ" secondAttribute="trailing" constant="130" id="qR3-kh-MnO"/>
+                                    <constraint firstItem="wj6-XZ-ibQ" firstAttribute="top" secondItem="G6o-5l-0ay" secondAttribute="bottom" constant="5" id="yT1-iB-55E"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZS-2X-Dxl">
+                                <rect key="frame" x="0.0" y="246" width="414" height="616"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0ZS-Kb-pYH"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tZS-2X-Dxl" firstAttribute="bottom" secondItem="0ZS-Kb-pYH" secondAttribute="bottom" id="3Qf-sq-NvQ"/>
+                            <constraint firstItem="GIP-aI-Gav" firstAttribute="trailing" secondItem="tZS-2X-Dxl" secondAttribute="trailing" id="4ys-9X-a8h"/>
+                            <constraint firstItem="tZS-2X-Dxl" firstAttribute="centerX" secondItem="Rox-e0-whh" secondAttribute="centerX" id="Ohn-Ai-N2D"/>
+                            <constraint firstItem="tZS-2X-Dxl" firstAttribute="top" secondItem="Rox-e0-whh" secondAttribute="top" constant="246" id="h0p-hl-Oui"/>
+                            <constraint firstItem="tZS-2X-Dxl" firstAttribute="leading" secondItem="0ZS-Kb-pYH" secondAttribute="leading" id="ksg-7E-A4v"/>
+                            <constraint firstItem="GIP-aI-Gav" firstAttribute="top" secondItem="Rox-e0-whh" secondAttribute="top" id="qc8-WW-05h"/>
+                            <constraint firstItem="tZS-2X-Dxl" firstAttribute="top" secondItem="GIP-aI-Gav" secondAttribute="bottom" constant="8" symbolic="YES" id="xrQ-Nv-WYH"/>
+                            <constraint firstItem="GIP-aI-Gav" firstAttribute="leading" secondItem="tZS-2X-Dxl" secondAttribute="leading" id="y6T-e4-0ga"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HD2-Qo-1E4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="2Mk-H8-6nz">
+                            <color key="tintColor" name="primaryColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsView" destination="tZS-2X-Dxl" id="bJn-k8-Zja"/>
+                        <outlet property="userProfileVIew" destination="GIP-aI-Gav" id="6hO-52-qfS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYE-2o-USV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1105.7971014492755" y="941.51785714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="adD-LN-HjO">
@@ -392,7 +504,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Ao-0F-CtQ">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uaK-Ii-MMe">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wGo-6F-Kjm" userLabel="favoriteBookMarkButton">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wGo-6F-Kjm" userLabel="favoriteBookMarkButton">
                                 <rect key="frame" x="334" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -433,6 +545,8 @@
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="simpleWoman" width="3840" height="2160"/>
         <namedColor name="backgroundColor">
             <color red="0.090196078431372548" green="0.090196078431372548" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
