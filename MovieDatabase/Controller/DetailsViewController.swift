@@ -180,6 +180,8 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
     
     ///Нажатие кнопки просмотра фильма (Работает по прямой ссылке)
     @IBAction func watchButtonPressed(_ sender: UIButton) {
+        watchButton.pulsate()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
         //Сайт заглушка
         let webView : WKWebView = {
             let preferences = WKWebpagePreferences()
@@ -203,6 +205,7 @@ final class DetailsViewController: UIViewController, WKNavigationDelegate {
         guard let url = URL(string: adress) else { return }
         let request = URLRequest (url: url)
         webView.load (request)
+    }
     }
 }
 //MARK: - UITableViewDelegate, UITableViewDataSource
